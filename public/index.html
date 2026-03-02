@@ -5091,7 +5091,7 @@ function hideDisclaimer() {
   // Trigger 1: After 5 minutes of active use
   setTimeout(function() {
     if (!bmacShownThisSession && !bmacDismissed) {
-      showBmacToast('Built by a Delta flyer, not a corporation. If Widget Watch saved you a headache today, consider <a href="https://buymeacoffee.com/notjbg" target="_blank" rel="noopener noreferrer" style="color:var(--dl-accent);text-decoration:none;font-weight:700">supporting our site ☕</a>');
+      showBmacToast('Built by a Delta flyer, not a corporation.');
     }
   }, 5 * 60 * 1000);
 
@@ -5099,7 +5099,7 @@ function hideDisclaimer() {
   document.addEventListener('click', function() {
     bmacInteractions++;
     if (bmacInteractions === 10 && !bmacShownThisSession && !bmacDismissed) {
-      showBmacToast('You\'re really digging in! 🛫 This dashboard is free, ad-free, and built with love. <a href="https://buymeacoffee.com/notjbg" target="_blank" rel="noopener noreferrer" style="color:var(--dl-accent);text-decoration:none;font-weight:700">☕ Support the project</a>');
+      showBmacToast('You\'re really digging in! 🛫 This dashboard is free, ad-free, and built with love.');
     }
   });
 
@@ -5109,7 +5109,7 @@ function hideDisclaimer() {
     // Delay slightly so the watch notification shows first
     setTimeout(function() {
       bmacShownThisSession = false; // Allow this special one even if another showed
-      showBmacToast('Your flight ' + escapeHtml(flight) + ' landed! 🎉 If Widget Watch helped ease the wait — <a href="https://buymeacoffee.com/notjbg" target="_blank" rel="noopener noreferrer" style="color:var(--dl-accent);text-decoration:none;font-weight:700">☕ buy me a coffee</a>', 15000);
+      showBmacToast('Your flight ' + escapeHtml(flight) + ' landed! 🎉', 15000);
     }, 3000);
   };
 
