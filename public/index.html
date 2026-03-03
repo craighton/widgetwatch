@@ -199,7 +199,7 @@
 <link rel="preload" href="https://a.basemaps.cartocdn.com/dark_all/4/3/5.png" as="image" fetchpriority="high">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--dl-blue:#005DAA;--dl-dark:#0a0e14;--dl-panel:#111827;--dl-border:#1e293b;--dl-text:#e2e8f0;--dl-muted:#94a3b8;--dl-accent:#8ab4f8;--dl-green:#22c55e;--dl-yellow:#eab308;--dl-red:#ef4444;--bg-card:#111827;--font-ui:'Inter',system-ui,-apple-system,sans-serif;--font-mono:'JetBrains Mono',monospace;--mono:'JetBrains Mono',monospace}
+:root{--dl-blue:#003A70;--dl-dark:#0a0e14;--dl-panel:#111827;--dl-border:#1e293b;--dl-text:#e2e8f0;--dl-muted:#94a3b8;--dl-accent:#E8294A;--dl-green:#22c55e;--dl-yellow:#eab308;--dl-red:#ef4444;--bg-card:#111827;--font-ui:'Inter',system-ui,-apple-system,sans-serif;--font-mono:'JetBrains Mono',monospace;--mono:'JetBrains Mono',monospace}
 body{background:var(--dl-dark);color:var(--dl-text);font-family:var(--font-ui);overflow:hidden;font-size:12px;height:100vh;height:100dvh;display:flex;flex-direction:column}
 body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(30,41,59,.15) 50px),repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(30,41,59,.15) 50px);pointer-events:none;z-index:0}
 
@@ -218,7 +218,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .ticker-label{background:var(--dl-blue);color:#fff;font-size:10px;font-weight:700;padding:2px 10px;position:absolute;left:0;top:0;height:100%;display:flex;align-items:center;z-index:2;letter-spacing:1px}
 
 /* Header */
-#header{display:flex;align-items:center;justify-content:space-between;padding:6px 16px;background:linear-gradient(90deg,var(--dl-dark),#0d1520);border-bottom:1px solid rgba(0,93,170,.3);flex-shrink:0}
+#header{display:flex;align-items:center;justify-content:space-between;padding:6px 16px;background:linear-gradient(90deg,var(--dl-dark),#0d1520);border-bottom:1px solid rgba(0,58,112,.3);flex-shrink:0}
 #header h1{font-size:16px;font-weight:700;color:#fff;letter-spacing:1.5px}
 #header h1 .dl{color:var(--dl-blue)}
 #header-right{display:flex;align-items:center;gap:16px;font-size:11px}
@@ -230,7 +230,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 #tab-bar{display:flex;background:var(--dl-panel);border-bottom:2px solid var(--dl-border);flex-shrink:0}
 .tab-btn{flex:1;padding:10px 8px;text-align:center;font-size:11px;font-weight:600;letter-spacing:.5px;color:var(--dl-muted);cursor:pointer;border:none;background:none;transition:color .25s cubic-bezier(.4,0,.2,1),border-color .25s cubic-bezier(.4,0,.2,1),background-color .25s cubic-bezier(.4,0,.2,1);border-bottom:2px solid transparent;font-family:var(--font-ui)}
 .tab-btn:hover{color:#94a3b8;background:rgba(30,41,59,.5)}
-.tab-btn.active{color:var(--dl-text);border-bottom-color:var(--dl-blue);background:rgba(0,93,170,.08)}
+.tab-btn.active{color:var(--dl-text);border-bottom-color:var(--dl-blue);background:rgba(0,58,112,.08)}
 main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 .tab-content{display:none;position:relative;z-index:1;flex:1;min-height:0;overflow-y:auto}
 .tab-content.active{display:flex;flex-direction:column}
@@ -242,7 +242,7 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 #sidebar-filters-toggle{display:none}
 #tab-live .sidebar h3{font-size:10px;color:var(--dl-blue);text-transform:uppercase;letter-spacing:1.5px;padding:12px 12px 6px;border-bottom:1px solid var(--dl-border)}
 .hub-row{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;border-bottom:1px solid rgba(30,41,59,.4);transition:background .15s;cursor:default}
-.hub-row:hover{background:rgba(0,93,170,.06)}
+.hub-row:hover{background:rgba(0,58,112,.06)}
 .hub-code{font-weight:700;color:var(--dl-accent);font-size:13px}
 .hub-counts{font-size:10px;color:var(--dl-muted)}
 .hub-bar{height:3px;background:var(--dl-border);border-radius:2px;margin-top:3px}
@@ -252,14 +252,14 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 #tab-live #map{width:100%;height:100%}
 #tab-live #controls{position:absolute;top:10px;right:10px;z-index:1000;display:flex;flex-direction:column;gap:5px}
 .ctrl-btn{background:rgba(10,14,20,.9);border:1px solid var(--dl-border);color:#ccc;padding:5px 10px;border-radius:4px;cursor:pointer;font-size:10px;font-family:var(--font-mono);backdrop-filter:blur(8px);transition:background-color .2s cubic-bezier(.4,0,.2,1),border-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1)}
-.ctrl-btn:hover{background:rgba(0,93,170,.3);border-color:var(--dl-blue)}
+.ctrl-btn:hover{background:rgba(0,58,112,.3);border-color:var(--dl-blue)}
 .ctrl-btn.active{border-color:var(--dl-accent);color:var(--dl-accent)}
 #search-box{position:absolute;top:10px;left:10px;z-index:1000}
 #search-input{background:rgba(10,14,20,.9);border:1px solid var(--dl-border);color:var(--dl-text);padding:7px 12px;border-radius:4px;font-family:var(--mono);font-size:11px;width:220px;backdrop-filter:blur(8px)}
 #search-input:focus{outline:none;border-color:var(--dl-blue)}
 #search-results{position:absolute;top:34px;left:0;background:rgba(17,24,39,.95);border:1px solid var(--dl-border);border-radius:4px;max-height:300px;overflow-y:auto;width:280px;display:none;backdrop-filter:blur(8px)}
 .search-result{padding:6px 12px;cursor:pointer;border-bottom:1px solid rgba(30,41,59,.3);font-size:11px}
-.search-result:hover{background:rgba(0,93,170,.15)}
+.search-result:hover{background:rgba(0,58,112,.15)}
 
 /* Stats bar */
 #stats-bar{background:var(--dl-panel);border-top:1px solid var(--dl-border);padding:6px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:10px;flex-shrink:0}
@@ -280,7 +280,7 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 .popup-phase{font-size:10px;padding:2px 8px;border-radius:3px;font-weight:600;display:inline-block}
 .phase-ground{background:#374151;color:#9ca3af}
 .phase-climb{background:rgba(34,197,94,.15);color:var(--dl-green)}
-.phase-cruise{background:rgba(0,93,170,.15);color:var(--dl-accent)}
+.phase-cruise{background:rgba(0,58,112,.15);color:var(--dl-accent)}
 .phase-descent{background:rgba(234,179,8,.15);color:var(--dl-yellow)}
 .phase-approach{background:rgba(239,68,68,.15);color:var(--dl-red)}
 .popup-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;margin:8px 0}
@@ -289,11 +289,11 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 .popup-field-value{font-size:12px;font-weight:600}
 .alt-bar{height:6px;background:var(--dl-border);border-radius:3px;margin:3px 0;overflow:hidden}
 .alt-bar-fill{height:100%;background:linear-gradient(90deg,var(--dl-blue),var(--dl-accent));border-radius:3px;transition:width .3s}
-.popup-aircraft{background:rgba(0,93,170,.08);border:1px solid rgba(0,93,170,.2);border-radius:4px;padding:6px 8px;margin:8px 0}
+.popup-aircraft{background:rgba(0,58,112,.08);border:1px solid rgba(0,58,112,.2);border-radius:4px;padding:6px 8px;margin:8px 0}
 .popup-aircraft-type{font-size:13px;font-weight:700;color:var(--dl-blue)}
 .popup-seats{display:flex;gap:4px;margin-top:4px}
 .seat-block{padding:1px 5px;border-radius:2px;font-size:9px;font-weight:600}
-.seat-J{background:rgba(0,93,170,.3);color:#60a5fa}
+.seat-J{background:rgba(0,58,112,.3);color:#60a5fa}
 .seat-PS,.seat-PE{background:rgba(20,184,166,.3);color:#2dd4bf}
 .seat-F{background:rgba(139,92,246,.3);color:#a78bfa}
 .seat-C\+{background:rgba(34,197,94,.3);color:#4ade80}
@@ -301,13 +301,13 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 /* ═══ AIRCRAFT DETAIL MODAL ═══ */
 #aircraft-detail-modal{position:fixed;inset:0;z-index:10001;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.7);backdrop-filter:blur(4px)}
 .ac-modal-card{background:var(--dl-panel);border:1px solid var(--dl-border);border-radius:8px;max-width:440px;width:90%;color:var(--dl-text);font-family:var(--font-mono);position:relative;overflow:hidden;max-height:85vh;display:flex;flex-direction:column}
-.ac-modal-header{background:linear-gradient(135deg,rgba(0,93,170,.3),rgba(0,50,100,.2));padding:16px 20px;border-bottom:1px solid var(--dl-border);flex-shrink:0}
+.ac-modal-header{background:linear-gradient(135deg,rgba(0,58,112,.3),rgba(0,28,70,.2));padding:16px 20px;border-bottom:1px solid var(--dl-border);flex-shrink:0}
 .ac-modal-body{padding:16px 20px;overflow-y:auto;flex:1;min-height:0}
 .ac-modal-close{position:absolute;top:8px;right:12px;background:none;border:none;color:var(--dl-muted);cursor:pointer;font-size:16px}
 .ac-modal-reg{font-size:20px;font-weight:700;color:var(--dl-accent);letter-spacing:1px}
 .ac-modal-type{font-size:13px;color:var(--dl-text);margin-top:2px}
 .ac-modal-acnum{font-size:10px;color:var(--dl-muted)}
-.ac-section{margin-top:12px;padding:10px;background:rgba(0,93,170,.06);border:1px solid rgba(0,93,170,.15);border-radius:4px}
+.ac-section{margin-top:12px;padding:10px;background:rgba(0,58,112,.06);border:1px solid rgba(0,58,112,.15);border-radius:4px}
 .ac-section-title{font-size:9px;color:var(--dl-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;font-weight:600}
 .ac-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px}
 .ac-detail-label{font-size:9px;color:var(--dl-muted)}
@@ -318,13 +318,13 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 .ac-seat-bar{display:flex;height:18px;border-radius:4px;overflow:hidden;margin-top:4px}
 .ac-seat-bar>div{display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;min-width:20px}
 .ac-modal-footer{padding:10px 20px;border-top:1px solid var(--dl-border);display:flex;gap:8px;flex-wrap:wrap;align-items:center;flex-shrink:0}
-.ac-action-btn{background:rgba(0,93,170,.15);border:1px solid rgba(0,93,170,.3);color:var(--dl-accent);padding:4px 10px;border-radius:4px;font-size:10px;font-family:var(--font-mono);cursor:pointer;text-decoration:none;transition:background .2s}
-.ac-action-btn:hover{background:rgba(0,93,170,.25)}
+.ac-action-btn{background:rgba(0,58,112,.15);border:1px solid rgba(0,58,112,.3);color:var(--dl-accent);padding:4px 10px;border-radius:4px;font-size:10px;font-family:var(--font-mono);cursor:pointer;text-decoration:none;transition:background .2s}
+.ac-action-btn:hover{background:rgba(0,58,112,.25)}
 .ac-reg-link{color:var(--dl-accent);cursor:pointer;text-decoration:none;border-bottom:1px dotted rgba(138,180,248,.3);transition:border-color .2s}
 .ac-reg-link:hover{border-bottom-color:var(--dl-accent)}
 .squawk-alert{background:var(--dl-red);color:#fff;padding:2px 8px;border-radius:3px;font-size:10px;font-weight:700;animation:blink 1s infinite}
 @keyframes blink{50%{opacity:.5}}
-.popup-times{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;margin:8px 0;padding:8px;background:rgba(0,93,170,.06);border:1px solid rgba(0,93,170,.15);border-radius:4px}
+.popup-times{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;margin:8px 0;padding:8px;background:rgba(0,58,112,.06);border:1px solid rgba(0,58,112,.15);border-radius:4px}
 .popup-times .popup-field-value{font-size:11px}
 .popup-times .time-delta{font-size:9px;font-weight:600;margin-left:4px}
 .popup-times .time-delta.late{color:#ef4444}
@@ -343,7 +343,7 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 .card h3{font-size:10px;color:var(--dl-blue);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px}
 .fleet-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:6px;margin-bottom:14px}
 .fleet-chip{background:rgba(15,23,41,.8);border:1px solid var(--dl-border);border-radius:6px;padding:8px;text-align:center;cursor:pointer;transition:border-color .2s cubic-bezier(.4,0,.2,1),background-color .2s cubic-bezier(.4,0,.2,1)}
-.fleet-chip:hover,.fleet-chip.active{border-color:var(--dl-blue);background:rgba(0,93,170,.1)}
+.fleet-chip:hover,.fleet-chip.active{border-color:var(--dl-blue);background:rgba(0,58,112,.1)}
 .fleet-chip .count{font-size:20px;font-weight:700;color:var(--dl-blue)}
 .fleet-chip .label{font-size:9px;color:var(--dl-muted);margin-top:1px}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -369,7 +369,7 @@ tbody td{padding:5px 8px;white-space:nowrap}
 .config-block{height:14px;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;min-width:20px}
 .config-J{background:#2563eb}.config-PS,.config-PE{background:#0d9488}.config-F{background:#7c3aed}.config-E\\+{background:#16a34a}.config-Y{background:#475569}
 .refresh-btn{background:var(--dl-blue);color:#fff;border:none;padding:6px 14px;border-radius:4px;cursor:pointer;font-family:var(--font-ui);font-size:10px;font-weight:600;transition:background-color .2s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1)}
-.refresh-btn:hover{background:#0070cc}
+.refresh-btn:hover{background:#1a4d8a}
 
 /* Fleet Health Dashboard */
 .fleet-health-bar{display:flex;align-items:center;gap:8px;margin-bottom:6px}
@@ -437,12 +437,12 @@ tbody td{padding:5px 8px;white-space:nowrap}
 
 /* Hub/Phase Filter Styles */
 .hub-row{cursor:pointer}
-.hub-row.hub-selected{background:rgba(0,93,170,.2);border-left:3px solid var(--dl-blue)}
+.hub-row.hub-selected{background:rgba(0,58,112,.2);border-left:3px solid var(--dl-blue)}
 .show-all-btn{display:block;padding:6px 12px;font-size:10px;color:var(--dl-accent);cursor:pointer;border-bottom:1px solid var(--dl-border);text-align:center;font-family:var(--font-ui);font-weight:600;transition:background-color .15s cubic-bezier(.4,0,.2,1)}
-.show-all-btn:hover{background:rgba(0,93,170,.1)}
+.show-all-btn:hover{background:rgba(0,58,112,.1)}
 .phase-row{display:flex;justify-content:space-between;padding:4px 0;font-size:10px;cursor:pointer;border-radius:3px;padding:4px 6px;transition:background .15s}
-.phase-row:hover{background:rgba(0,93,170,.1)}
-.phase-row.phase-selected{background:rgba(0,93,170,.2);border-left:2px solid var(--dl-accent)}
+.phase-row:hover{background:rgba(0,58,112,.1)}
+.phase-row.phase-selected{background:rgba(0,58,112,.2);border-left:2px solid var(--dl-accent)}
 
 /* Live Fleet Status */
 .live-fleet-panel{background:var(--dl-panel);border:1px solid var(--dl-border);border-radius:6px;padding:14px;margin-bottom:14px;position:relative;overflow:hidden}
@@ -460,7 +460,7 @@ tbody td{padding:5px 8px;white-space:nowrap}
 .live-table-wrap{max-height:350px;overflow-y:auto;border:1px solid var(--dl-border);border-radius:4px;margin-top:10px}
 
 /* Weather Explainer */
-.wx-explainer{background:rgba(0,93,170,.06);border:1px solid rgba(0,93,170,.15);border-radius:4px;padding:8px 10px;margin:4px 0 8px;font-size:10px;line-height:1.5;color:var(--dl-text)}
+.wx-explainer{background:rgba(0,58,112,.06);border:1px solid rgba(0,58,112,.15);border-radius:4px;padding:8px 10px;margin:4px 0 8px;font-size:10px;line-height:1.5;color:var(--dl-text)}
 .wx-explainer .icon{font-size:12px;margin-right:4px}
 
 /* Offline Banner */
@@ -471,7 +471,7 @@ tbody td{padding:5px 8px;white-space:nowrap}
 .error-state,.empty-state{text-align:center;padding:40px 20px;color:var(--dl-muted);font-size:12px}
 .error-state .error-icon,.empty-state .empty-icon{font-size:32px;margin-bottom:10px}
 .retry-btn{background:var(--dl-blue);color:#fff;border:none;padding:8px 20px;border-radius:4px;cursor:pointer;font-family:var(--font-ui);font-size:11px;font-weight:600;margin-top:12px;transition:background-color .2s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1)}
-.retry-btn:hover{background:#0070cc}
+.retry-btn:hover{background:#1a4d8a}
 
 /* Visually Hidden (for screen readers / LLMs) */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -598,7 +598,7 @@ tbody td{padding:5px 8px;white-space:nowrap}
 .sched-day-btn.active{background:var(--dl-blue);color:white;border-color:var(--dl-blue)}
 #sched-table th{position:sticky;top:0;background:var(--bg-card);z-index:2;font-size:9px;text-transform:uppercase;letter-spacing:.5px;color:var(--dl-muted);padding:8px 10px;border-bottom:1px solid var(--dl-border);white-space:nowrap}
 #sched-table td{padding:6px 10px;font-size:11px;border-bottom:1px solid rgba(51,65,85,.3);white-space:nowrap}
-#sched-table tr:hover{background:rgba(0,93,170,.06)}
+#sched-table tr:hover{background:rgba(0,58,112,.06)}
 .sched-status{display:inline-block;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:600;letter-spacing:.3px}
 .sched-status.on-time,.sched-status.scheduled,.sched-status.estimated{background:rgba(34,197,94,.12);color:#22c55e}
 .sched-status.landed{background:rgba(59,130,246,.12);color:#3b82f6}
@@ -610,13 +610,13 @@ tbody td{padding:5px 8px;white-space:nowrap}
 .sched-fleet-miss{font-size:9px;color:var(--dl-muted)}
 .sched-time-actual{font-size:9px;color:#f59e0b;margin-top:1px}
 .sched-load-more{background:none;border:1px solid var(--dl-border);color:var(--dl-blue);padding:6px 16px;font-family:var(--font-ui);font-size:10px;cursor:pointer;border-radius:3px;margin:4px;transition:background-color .2s cubic-bezier(.4,0,.2,1),border-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1)}
-.sched-load-more:hover{background:rgba(0,93,170,.1);border-color:var(--dl-blue)}
+.sched-load-more:hover{background:rgba(0,58,112,.1);border-color:var(--dl-blue)}
 .sched-load-more:disabled{opacity:.4;cursor:default}
 
 /* Onboarding Overlay */
 #onboarding-overlay{position:fixed;inset:0;background:rgba(10,14,20,.85);z-index:10000;display:flex;align-items:center;justify-content:center;opacity:0;animation:obFadeIn .4s ease forwards;backdrop-filter:blur(4px)}
 #onboarding-overlay.ob-hidden{opacity:0;pointer-events:none;transition:opacity .3s ease}
-#onboarding-card{background:var(--dl-panel);border:1px solid var(--dl-border);border-radius:12px;max-width:480px;width:90%;padding:32px;text-align:center;box-shadow:0 0 60px rgba(0,93,170,.15)}
+#onboarding-card{background:var(--dl-panel);border:1px solid var(--dl-border);border-radius:12px;max-width:480px;width:90%;padding:32px;text-align:center;box-shadow:0 0 60px rgba(0,58,112,.15)}
 #onboarding-card h2{font-size:20px;color:#fff;margin-bottom:6px;letter-spacing:.5px}
 .onboarding-subtitle{color:var(--dl-muted);font-size:12px;margin-bottom:24px}
 .onboarding-features{text-align:left;display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
@@ -626,7 +626,7 @@ tbody td{padding:5px 8px;white-space:nowrap}
 .onboarding-desc{color:var(--dl-muted);display:block}
 .onboarding-footer{color:var(--dl-muted);font-size:10px;margin-bottom:20px;opacity:.7}
 #onboarding-dismiss{background:var(--dl-blue);color:#fff;border:none;padding:10px 28px;border-radius:6px;font-family:var(--font-ui);font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.5px;transition:background-color .2s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1)}
-#onboarding-dismiss:hover{background:#0070cc}
+#onboarding-dismiss:hover{background:#1a4d8a}
 #onboarding-help{background:none;border:1px solid var(--dl-border);color:var(--dl-muted);width:22px;height:22px;border-radius:50%;font-family:var(--font-ui);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);padding:0;line-height:1}
 #onboarding-help:hover{border-color:var(--dl-blue);color:var(--dl-accent)}
 @keyframes obFadeIn{from{opacity:0}to{opacity:1}}
@@ -657,7 +657,7 @@ tbody td{padding:5px 8px;white-space:nowrap}
 /* Fleet Enrichment Tooltip */
 .fleet-enrich-icon{cursor:pointer;color:var(--dl-accent);font-size:10px;margin-left:3px;opacity:.7;transition:opacity .15s}
 .fleet-enrich-icon:hover{opacity:1}
-.fleet-enrich-detail{background:rgba(0,93,170,.08);border:1px solid rgba(0,93,170,.2);border-radius:4px;padding:6px 8px;margin-top:4px;font-size:9px;line-height:1.6;display:none}
+.fleet-enrich-detail{background:rgba(0,58,112,.08);border:1px solid rgba(0,58,112,.2);border-radius:4px;padding:6px 8px;margin-top:4px;font-size:9px;line-height:1.6;display:none}
 .fleet-enrich-detail.show{display:block}
 .fleet-enrich-inline{font-size:9px;color:var(--dl-muted);margin-top:1px}
 
@@ -699,13 +699,13 @@ tbody td{padding:5px 8px;white-space:nowrap}
 #watch-panel.show{display:block}
 .watch-panel-header{padding:10px 12px;border-bottom:1px solid var(--dl-border);font-size:10px;color:var(--dl-blue);font-weight:700;text-transform:uppercase;letter-spacing:1px;display:flex;justify-content:space-between;align-items:center}
 .watch-flight-item{padding:8px 12px;border-bottom:1px solid rgba(30,41,59,.3);font-size:10px;display:flex;justify-content:space-between;align-items:center}
-.watch-flight-item:hover{background:rgba(0,93,170,.06)}
+.watch-flight-item:hover{background:rgba(0,58,112,.06)}
 .watch-flight-info .wf-num{font-weight:700;color:var(--dl-accent);font-size:11px}
 .watch-flight-info .wf-route{color:var(--dl-muted)}
 .watch-flight-status{text-align:right}
 .watch-remove{background:none;border:none;color:var(--dl-muted);cursor:pointer;font-size:12px;margin-left:6px;padding:2px}
 .watch-remove:hover{color:var(--dl-red)}
-#watch-notification{position:fixed;top:0;left:0;right:0;background:rgba(0,93,170,.95);color:#fff;padding:10px 16px;font-size:12px;font-weight:600;z-index:10000;display:none;align-items:center;justify-content:space-between;backdrop-filter:blur(8px)}
+#watch-notification{position:fixed;top:0;left:0;right:0;background:rgba(0,58,112,.95);color:#fff;padding:10px 16px;font-size:12px;font-weight:600;z-index:10000;display:none;align-items:center;justify-content:space-between;backdrop-filter:blur(8px)}
 #watch-notification.show{display:flex}
 #watch-notification .wn-dismiss{background:none;border:1px solid rgba(255,255,255,.3);color:#fff;padding:4px 10px;border-radius:3px;cursor:pointer;font-family:var(--font-ui);font-size:10px}
 
@@ -1904,14 +1904,14 @@ function drawHubs() {
 
   HUBS.forEach(h => {
     const circle = L.circleMarker([h.lat, h.lon], {
-      radius: 8, color: '#005DAA', fillColor: '#005DAA', fillOpacity: 0.3, weight: 2
+      radius: 8, color: '#003A70', fillColor: '#003A70', fillOpacity: 0.3, weight: 2
     }).addTo(map);
     circle.bindTooltip(h.iata, { permanent: true, direction: 'top', className: 'hub-tooltip', offset: [0, -10] });
     hubMarkers.push(circle);
 
     // Pulse
     const pulse = L.circleMarker([h.lat, h.lon], {
-      radius: 8, color: '#005DAA', fillOpacity: 0, weight: 1, className: 'hub-pulse'
+      radius: 8, color: '#003A70', fillOpacity: 0, weight: 1, className: 'hub-pulse'
     }).addTo(map);
     hubMarkers.push(pulse);
   });
@@ -2372,18 +2372,18 @@ function showFlightPopup(f, marker) {
       const planePos = [f.lat, f.lon];
       // Traveled segment: origin → plane (solid) — continuous lon for IDL crossing
       const traveledPts = normalizeLonContinuity(greatCirclePoints(oApt.lat, oApt.lon, f.lat, f.lon, 60));
-      layers.push(L.polyline(traveledPts, { color: '#005DAA', weight: 2.5, opacity: 0.8 }));
+      layers.push(L.polyline(traveledPts, { color: '#003A70', weight: 2.5, opacity: 0.8 }));
       // Remaining segment: plane → destination (dashed)
       const remainPts = normalizeLonContinuity(greatCirclePoints(f.lat, f.lon, dApt.lat, dApt.lon, 60));
-      layers.push(L.polyline(remainPts, { color: '#005DAA', weight: 1.5, dashArray: '6,4', opacity: 0.4 }));
+      layers.push(L.polyline(remainPts, { color: '#003A70', weight: 1.5, dashArray: '6,4', opacity: 0.4 }));
       // Origin marker — use normalized lon from route start
       const oLon = traveledPts[0][1];
       const oLabel = oApt.iata + (IATA_CITIES[oApt.iata] ? ' — ' + IATA_CITIES[oApt.iata] : '');
-      layers.push(L.circleMarker([oApt.lat, oLon], {radius:5,color:'#005DAA',fillColor:'#005DAA',fillOpacity:0.7,weight:1}).bindTooltip(oLabel,{permanent:false,direction:'top'}));
+      layers.push(L.circleMarker([oApt.lat, oLon], {radius:5,color:'#003A70',fillColor:'#003A70',fillOpacity:0.7,weight:1}).bindTooltip(oLabel,{permanent:false,direction:'top'}));
       // Destination marker — use normalized lon from route end
       const dLon = remainPts[remainPts.length - 1][1];
       const dLabel = dApt.iata + (IATA_CITIES[dApt.iata] ? ' — ' + IATA_CITIES[dApt.iata] : '');
-      layers.push(L.circleMarker([dApt.lat, dLon], {radius:5,color:'#005DAA',fillColor:'#fff',fillOpacity:0.9,weight:2}).bindTooltip(dLabel,{permanent:false,direction:'top'}));
+      layers.push(L.circleMarker([dApt.lat, dLon], {radius:5,color:'#003A70',fillColor:'#fff',fillOpacity:0.9,weight:2}).bindTooltip(dLabel,{permanent:false,direction:'top'}));
       routeGroup = L.layerGroup(layers).addTo(map);
     }
   }
@@ -2561,7 +2561,7 @@ document.getElementById('search-input-side').addEventListener('input', debounce(
 
   // Check if query matches a hub code — suggest hub filter
   const isHub = HUB_CODES.includes(q);
-  const hubHint = isHub ? `<div style="padding:6px 12px;font-size:10px;background:rgba(0,93,170,.1);border-bottom:1px solid var(--dl-border);cursor:pointer" data-action="toggle-hub-filter" data-hub="${q}"><span style="color:var(--dl-accent)">🏢 Filter map to ${q}</span> <span style="color:var(--dl-muted)">(${allMatches.length} flights)</span></div>` : '';
+  const hubHint = isHub ? `<div style="padding:6px 12px;font-size:10px;background:rgba(0,58,112,.1);border-bottom:1px solid var(--dl-border);cursor:pointer" data-action="toggle-hub-filter" data-hub="${q}"><span style="color:var(--dl-accent)">🏢 Filter map to ${q}</span> <span style="color:var(--dl-muted)">(${allMatches.length} flights)</span></div>` : '';
   const countHeader = `<div style="padding:4px 12px;font-size:9px;color:var(--dl-muted);border-bottom:1px solid var(--dl-border)">${allMatches.length} flight${allMatches.length !== 1 ? 's' : ''} found${allMatches.length > 50 ? ' (showing 50)' : ''}</div>`;
 
   if (allMatches.length === 0) {
@@ -3229,7 +3229,7 @@ function updateAnalytics() {
     const total = typeTotals[t] || 0;
     const flying = typeAirborne[t] || 0;
     const pct = total > 0 ? Math.round((flying / total) * 100) : 0;
-    const color = pct > 60 ? '#22c55e' : pct > 30 ? '#005DAA' : pct > 0 ? '#f59e0b' : '#334155';
+    const color = pct > 60 ? '#22c55e' : pct > 30 ? '#003A70' : pct > 0 ? '#f59e0b' : '#334155';
     return `<div style="display:flex;align-items:center;padding:4px 0;border-bottom:1px solid rgba(30,41,59,.3)">
       <span style="font-size:10px;min-width:85px;color:var(--dl-text)">${t}</span>
       <div style="flex:1;margin:0 8px;height:10px;background:var(--dl-border);border-radius:4px;overflow:hidden;position:relative">
@@ -3241,7 +3241,7 @@ function updateAnalytics() {
 
   // ═══ AIRBORNE BY FLIGHT PHASE ═══
   const phaseCounts = { 'Takeoff': 0, 'Climb': 0, 'Cruise': 0, 'En Route': 0, 'Descent': 0, 'Approach': 0, 'Ground': 0 };
-  const phaseColors = { 'Takeoff': '#22c55e', 'Climb': '#3b82f6', 'Cruise': '#005DAA', 'En Route': '#6366f1', 'Descent': '#f59e0b', 'Approach': '#ef4444', 'Ground': '#64748b' };
+  const phaseColors = { 'Takeoff': '#22c55e', 'Climb': '#3b82f6', 'Cruise': '#003A70', 'En Route': '#6366f1', 'Descent': '#f59e0b', 'Approach': '#ef4444', 'Ground': '#64748b' };
   const phaseIcons = { 'Takeoff': '🛫', 'Climb': '↗️', 'Cruise': '✈️', 'En Route': '✈️', 'Descent': '↘️', 'Approach': '🛬', 'Ground': '🅿️' };
 
   allFlights.forEach(f => {
@@ -3312,7 +3312,7 @@ function updateAnalytics() {
         mHtml += `<td style="padding:4px 6px;text-align:center;background:rgba(30,41,59,.3);color:var(--dl-muted)">—</td>`;
       } else {
         const intensity = v > 0 ? Math.max(0.15, v / matrixMax) : 0;
-        const bg = v > 0 ? `rgba(0,93,170,${intensity})` : 'transparent';
+        const bg = v > 0 ? `rgba(0,58,112,${intensity})` : 'transparent';
         mHtml += `<td style="padding:4px 6px;text-align:center;background:${bg};color:${v > 0 ? 'var(--dl-text)' : 'var(--dl-muted)'};font-weight:${v > 0 ? '700' : '400'};border:1px solid rgba(30,41,59,.3)">${v || '·'}</td>`;
       }
     });
@@ -3360,7 +3360,7 @@ function updateAnalytics() {
     return `<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid rgba(30,41,59,.3)">
       <span style="font-size:10px;min-width:85px">${t}</span>
       <div style="flex:1;margin:0 8px;height:8px;background:var(--dl-border);border-radius:4px;overflow:hidden">
-        <div style="height:100%;width:${avg / maxAge * 100}%;background:${avg > 20 ? '#ef4444' : avg > 15 ? '#f59e0b' : avg > 8 ? '#005DAA' : '#22c55e'};border-radius:4px"></div>
+        <div style="height:100%;width:${avg / maxAge * 100}%;background:${avg > 20 ? '#ef4444' : avg > 15 ? '#f59e0b' : avg > 8 ? '#003A70' : '#22c55e'};border-radius:4px"></div>
       </div>
       <span style="font-size:10px;color:var(--dl-accent);font-weight:700;min-width:40px;text-align:right">${avg}y</span>
     </div>`;
@@ -5123,7 +5123,7 @@ function hideDisclaimer() {
 
 // ═══ AIRCRAFT DETAIL MODAL ═══
 const SEAT_BAR_COLORS = {
-  'J':'rgba(0,93,170,.5)','F':'rgba(139,92,246,.5)',
+  'J':'rgba(0,58,112,.5)','F':'rgba(139,92,246,.5)',
   'PS':'rgba(20,184,166,.5)',
   'C+':'rgba(34,197,94,.5)','Y':'rgba(100,116,139,.5)'
 };
@@ -5321,7 +5321,7 @@ function renderFR24Modal(f, source, cached) {
   if (f.aircraft && f.aircraft.reg && typeof FLEET_DB !== 'undefined') {
     var match = FLEET_DB.find(function(a) { return a.r === f.aircraft.reg; });
     if (match) {
-      fleetInfo = '<div style="margin-top:8px;padding:8px;background:rgba(0,93,170,.1);border-radius:4px;font-size:10px">' +
+      fleetInfo = '<div style="margin-top:8px;padding:8px;background:rgba(0,58,112,.1);border-radius:4px;font-size:10px">' +
         '<span style="color:var(--dl-accent)">Fleet Match:</span> ' + escapeHtml(match.t) +
         (match.c ? ' • ' + escapeHtml(match.c) : '') +
         (match.w ? ' • WiFi: ' + escapeHtml(match.w) : '') +
@@ -5347,7 +5347,7 @@ function renderFR24Modal(f, source, cached) {
 
   var html = '<div style="background:var(--dl-panel);border:1px solid var(--dl-border);border-radius:8px;padding:0;max-width:420px;width:90%;color:var(--dl-text);font-family:var(--mono);position:relative;overflow:hidden">';
   // Header
-  html += '<div style="background:linear-gradient(135deg,rgba(0,93,170,.3),rgba(0,50,100,.2));padding:16px 20px;border-bottom:1px solid var(--dl-border)">';
+  html += '<div style="background:linear-gradient(135deg,rgba(0,58,112,.3),rgba(0,28,70,.2));padding:16px 20px;border-bottom:1px solid var(--dl-border)">';
   html += '<button data-action="close-fr24-modal" aria-label="Close" style="position:absolute;top:8px;right:12px;background:none;border:none;color:var(--dl-muted);cursor:pointer;font-size:16px">✕</button>';
   html += '<div style="font-size:16px;font-weight:700;color:var(--dl-accent)">' + escapeHtml(f.flightNumber || '?') + '</div>';
   if (f.callsign) html += '<div style="font-size:10px;color:var(--dl-muted)">' + escapeHtml(f.callsign) + '</div>';
