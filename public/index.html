@@ -2098,8 +2098,8 @@ function createPlaneIcon(hdg, isLonghaul, phase) {
   const hdgRounded = Math.round((hdg || 0) / 5) * 5;
   const cacheKey = `${hdgRounded}|${isLonghaul?1:0}|${phase}`;
   if (_iconCache[cacheKey]) return _iconCache[cacheKey];
-  const color = isLonghaul ? '#fbbf24' : (phase === 'Ground' ? '#6b728000' : '#60a5fa');
-  const size = isLonghaul ? 12 : 12;
+  const color = isLonghaul ? '#fbbf24' : (phase === 'Ground' ? '#6b7280' : '#60a5fa');
+  const size = isLonghaul ? 11 : 11;
   // SVG plane pointing north (0°) — classic top-down aircraft silhouette, cross-platform consistent
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 256 256" fill="${color}" style="filter:drop-shadow(0 0 2px ${color})"><path d="M131.53,25.31c0-13.98-5.56-25.31-12.41-25.31s-12.41,11.33-12.41,25.31h0v60.06S0,159.82,0,159.82v14.89s106.71-29.78,106.71-29.78v59.56s-37.23,24.82-37.23,24.82v9.93s44.67-9.93,44.67-9.93h9.93s44.67,9.93,44.67,9.93v-9.93s-37.23-24.82-37.23-24.82v-59.56s106.71,29.78,106.71,29.78v-14.89s-106.71-74.45-106.71-74.45V25.31Z"/></svg>`;  const icon = L.divIcon({
     html: `<div style="transform:rotate(${hdgRounded}deg);line-height:0">${svg}</div>`,
