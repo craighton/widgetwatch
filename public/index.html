@@ -2020,7 +2020,7 @@ async function refreshFlights() {
 
     document.getElementById('status-dot').className = 'status-dot live';
     document.getElementById('status-text').textContent = 'LIVE';
-    document.getElementById('header-flight-count').textContent = '· ' + allFlights.length + ' flights';
+    document.getElementById('header-flight-count').textContent = '· ' + allFlights.length + ' FLIGHTS';
     const errOverlay = document.getElementById('map-error-overlay');
     if (errOverlay) errOverlay.remove();
   } catch (e) {
@@ -2727,7 +2727,7 @@ function initFleetTab() {
   const typeCounts = {};
   FLEET_DB.forEach(a => { typeCounts[a.t] = (typeCounts[a.t] || 0) + 1; });
   const typeOrder = ["A220-100","A220-300","A319","A320","A321","A321neo","A330-200","A330-300","A330-900neo","A350-900","717-200","737-800","737-900ER","757-200","757-300","767-300ER","767-400ER"];
-  const icons = {'A220-100':'🟡','A220-300':'🟡','A319':'🟠','A320':'🟠','A321':'🟠','A321neo':'🟠','A330-200':'🟢','A330-300':'🟢','A330-900neo':'🟢','A350-900':'🟣','B717-200':'🟨','737-800':'🟧','737-900ER':'🟧','757-200':'🟩','757-300':'🟩','767-300ER':'🟪','767-400ER':'🟥'};
+  const icons = {'A220-100':'🟡','A220-300':'🟡','A319':'🟠','A320':'🟠','A321':'🟠','A321neo':'🟠','A330-200':'🟢','A330-300':'🟢','A330-900neo':'🟢','A350-900':'🟣','717-200':'🟨','737-800':'🟧','737-900ER':'🟧','757-200':'🟩','757-300':'🟩','767-300ER':'🟪','767-400ER':'🟥'};
 
   document.getElementById('fleet-chips').innerHTML = typeOrder.map(t =>
     `<div class="fleet-chip" data-action="filter-fleet-type" data-type="${t}">
