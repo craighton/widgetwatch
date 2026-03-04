@@ -745,7 +745,7 @@ table,thead th,tbody td,.stat-val,.metric-val,.big-number,.ticker,.ticker-item,.
       <div class="onboarding-feature"><span class="onboarding-icon">📊</span><div><strong>Stats</strong><span class="onboarding-desc">Fleet utilization, route patterns, and network health — the truly nerdy stuff</span></div></div>
     </div>
     <p class="onboarding-footer">Built by a Delta flyer, for Delta flyers. Not affiliated with Delta Air Lines.</p>
-    <button id="onboarding-dismiss">Let's Fly the Friendly Skies ✈️</button>
+    <button id="onboarding-dismiss">Let's Keep Climbing ✈️</button>
   </div>
 </div>
 <div id="offline-banner" aria-live="assertive" role="alert">⚠ You are offline — data may be outdated. Reconnect to see live updates.</div>
@@ -2628,8 +2628,8 @@ function updateTicker() {
   const items = [];
 
   if (allFlights.length > 0) {
-    items.push({ text: `${airborne} Delta flights airborne`, cls: 'info' });
-    items.push({ text: `Fleet: ${FLEET_DB.length} mainline aircraft`, cls: 'info' });
+    items.push({ text: `${airborne} DELTA FLIGHTS AIRBORNE`, cls: 'info' });
+    items.push({ text: `Fleet: ${FLEET_DB.length} MAINLINE AIRCRAFT`, cls: 'info' });
   }
 
   // Check for emergency squawks
@@ -2642,13 +2642,13 @@ function updateTicker() {
 
   // Default message when no alerts
   if (items.length === 0 || items.every(i => i.cls === 'info')) {
-    const countStr = allFlights.length > 0 ? ` — tracking ${allFlights.length} Delta flights` : '';
-    items.unshift({ text: `✅ All systems normal${countStr}`, cls: 'info' });
+    const countStr = allFlights.length > 0 ? ` — TRACKING ${allFlights.length} DELTA FLIGHTS` : '';
+    items.unshift({ text: `✅ ALL SYSTEMS NORMAL${countStr}`, cls: 'info' });
   }
 
   const tickerHtml = items.map(i => `<span class="ticker-item ${escapeHtml(i.cls)}">${escapeHtml(i.text)}</span>`).join('');
   const tickerEl = document.getElementById('ticker');
-  tickerEl.innerHTML = tickerHtml + tickerHtml; // duplicate for seamless scroll
+  tickerEl.innerHTML = tickerHtml + tickerHtml+ tickerHtml; // duplicate for seamless scroll
   initTickerAnimation(tickerEl);
 }
 
