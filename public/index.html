@@ -1012,7 +1012,7 @@ table,thead th,tbody td,.stat-val,.metric-val,.big-number,.ticker,.ticker-item,.
     </div>
     <div class="fleet-table-wrap">
       <table id="fleet-table">
-        <thead><tr><th data-sort="r">Reg ↕</th><th data-sort="t">Type ↕</th><th data-sort="a">AC# ↕</th><th data-sort="c">Config</th><th data-sort="tot">Seats ↕</th><th data-sort="w">WiFi</th><th data-sort="i">IFE</th><th data-sort="d">Del ↕</th><th data-sort="l">Livery ↕</th><th data-sort="s">Status</th></tr></thead>
+        <thead><tr><th data-sort="r">Reg ↕</th><th data-sort="t">Type ↕</th><th data-sort="a">AC# ↕</th><th data-sort="c">Config</th><th data-sort="tot">Seats ↕</th><th data-sort="w">WiFi</th><th data-sort="i">IFE</th><th data-sort="d">Del ↕</th><th data-sort="s">Status</th></tr></thead>
         <tbody id="fleet-tbody"></tbody>
       </table>
     </div>
@@ -1221,12 +1221,12 @@ const FLEET_HEALTH_CATEGORIES = [
 function categorizeFleetStatus(s) {
   if (!s) return 'active';
   if (s.startsWith('*')) return 'active';
-  //if (/SPIRIT OF FREEDOM|ANDREW YOUNG TRIBUTE|D-DAY DEDICATION|AMERICAN CANCER SOCIETY|VINCE DOOLEY DEDICATION|SKYTEAM|BREAST CANCER PINK PLANE|CAPTAIN DAVE VORGIAS|THANK YOU PLANE|CIRIUM-PLANTINUM AWARD|TEAM USA|THE DELTA SPIRIT|LA28 SUMMER OLYMPICS|DELTA CENTENNIAL|MILANO CORTINO 2026|ATLANTA BRAVES|SPIRIT OF SEATTLE|CE WOOLMAN TRIBUTE|MARIANO RIVERA/i.test(s)) return 'active';
+  if (/SPIRIT OF FREEDOM|ANDREW YOUNG TRIBUTE|D-DAY DEDICATION|AMERICAN CANCER SOCIETY|VINCE DOOLEY DEDICATION|SKYTEAM|BREAST CANCER PINK PLANE|CAPTAIN DAVE VORGIAS|THANK YOU PLANE|CIRIUM-PLANTINUM AWARD|TEAM USA|THE DELTA SPIRIT|LA28 SUMMER OLYMPICS|DELTA CENTENNIAL|MILANO CORTINO 2026|ATLANTA BRAVES|SPIRIT OF SEATTLE|CE WOOLMAN TRIBUTE|MARIANO RIVERA/i.test(s)) return 'active';
   if (/stored/i.test(s)) return 'stored';
-  if (/\bpaint\b/i.test(s)) return 'painting';
+  if (/paint/i.test(s)) return 'painting';
   //if (/\bmod\s*next\b/i.test(s)) return 'next_retrofit';
   //if (/future\s*gum/i.test(s)) return 'future_gum';
-  if (/maint|induction/i.test(s)) return 'maintenance';
+  if (/maint/i.test(s)) return 'maintenance';
   // Notes about NEXT status (Partial NEXT, NEXT???, Confirmed w.o NEXT) — aircraft is active
   //if (/next/i.test(s)) return 'active';
   // Remaining non-empty statuses are likely maintenance at MRO locations
@@ -1242,7 +1242,7 @@ function buildSpecialAircraftIndex() {
   FLEET_DB.forEach(a => {
     if (!a.s) return;
     if (a.s.startsWith('*')) {
-      SPECIAL_AIRCRAFT[a.r] = { name: a.s.replace(/^\*+|\*+$/g, '').trim(), type: 'named' };
+      SPECIAL_AIRCRAFT[a.r] = { name: a.s.replace(/^\*+|\*+$/g, '').trim(), type: 'livery' };
     } else if (/SPIRIT OF FREEDOM/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'SPIRIT OF FREEDOM', type: 'livery' };
     } else if (/ANDREW YOUNG TRIBUTE/i.test(a.s)) {
