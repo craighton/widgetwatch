@@ -1221,14 +1221,14 @@ const FLEET_HEALTH_CATEGORIES = [
 function categorizeFleetStatus(s) {
   if (!s) return 'active';
   if (s.startsWith('*')) return 'active';
-  if (/SPIRIT OF FREEDOM|ANDREW YOUNG TRIBUTE|D-DAY DEDICATION|AMERICAN CANCER SOCIETY|VINCE DOOLEY DEDICATION|SKYTEAM|BREAST CANCER PINK PLANE|CAPTAIN DAVE VORGIAS|THANK YOU PLANE|CIRIUM-PLANTINUM AWARD|TEAM USA|THE DELTA SPIRIT|LA28 SUMMER OLYMPICS|DELTA CENTENNIAL|MILANO CORTINO 2026|ATLANTA BRAVES|SPIRIT OF SEATTLE|CE WOOLMAN TRIBUTE|MARIANO RIVERA/i.test(s)) return 'active';
+  //if (/SPIRIT OF FREEDOM|ANDREW YOUNG TRIBUTE|D-DAY DEDICATION|AMERICAN CANCER SOCIETY|VINCE DOOLEY DEDICATION|SKYTEAM|BREAST CANCER PINK PLANE|CAPTAIN DAVE VORGIAS|THANK YOU PLANE|CIRIUM-PLANTINUM AWARD|TEAM USA|THE DELTA SPIRIT|LA28 SUMMER OLYMPICS|DELTA CENTENNIAL|MILANO CORTINO 2026|ATLANTA BRAVES|SPIRIT OF SEATTLE|CE WOOLMAN TRIBUTE|MARIANO RIVERA/i.test(s)) return 'active';
   if (/stored/i.test(s)) return 'stored';
   if (/\bpaint\b/i.test(s)) return 'painting';
-  if (/\bmod\s*next\b/i.test(s)) return 'next_retrofit';
-  if (/future\s*gum/i.test(s)) return 'future_gum';
+  //if (/\bmod\s*next\b/i.test(s)) return 'next_retrofit';
+  //if (/future\s*gum/i.test(s)) return 'future_gum';
   if (/maint|induction/i.test(s)) return 'maintenance';
   // Notes about NEXT status (Partial NEXT, NEXT???, Confirmed w.o NEXT) — aircraft is active
-  if (/next/i.test(s)) return 'active';
+  //if (/next/i.test(s)) return 'active';
   // Remaining non-empty statuses are likely maintenance at MRO locations
   if (s.trim()) return 'maintenance';
   return 'active';
@@ -1246,19 +1246,19 @@ function buildSpecialAircraftIndex() {
     } else if (/SPIRIT OF FREEDOM/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'SPIRIT OF FREEDOM', type: 'livery' };
     } else if (/ANDREW YOUNG TRIBUTE/i.test(a.s)) {
-      SPECIAL_AIRCRAFT[a.r] = { name: 'ANDREW YOUNG TRIBUTE', type: 'livery' };
+      SPECIAL_AIRCRAFT[a.r] = { name: 'ANDREW YOUNG TRIBUTE', type: 'named' };
     } else if (/D-DAY DEDICATION/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'D-DAY DEDICATION', type: 'livery' };
     } else if (/AMERICAN CANCER SOCIETY/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'AMERICAN CANCER SOCIETY', type: 'livery' };
     } else if (/VINCE DOOLEY DEDICATION/i.test(a.s)) {
-      SPECIAL_AIRCRAFT[a.r] = { name: 'VINCE DOOLEY DEDICATION', type: 'livery' };
+      SPECIAL_AIRCRAFT[a.r] = { name: 'VINCE DOOLEY DEDICATION', type: 'named' };
     } else if (/SKYTEAM/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'SKYTEAM', type: 'livery' };
     } else if (/BREAST CANCER PINK PLANE/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'BREAST CANCER PINK PLANE', type: 'livery' };
     } else if (/CAPTAIN DAVE VORGIAS/i.test(a.s)) {
-      SPECIAL_AIRCRAFT[a.r] = { name: 'CAPTAIN DAVE VORGIAS', type: 'livery' };
+      SPECIAL_AIRCRAFT[a.r] = { name: 'CAPTAIN DAVE VORGIAS', type: 'named' };
     } else if (/THANK YOU PLANE/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'THANK YOU PLANE', type: 'livery' };
     } else if (/CIRIUM-PLANTINUM AWARD/i.test(a.s)) {
@@ -1276,9 +1276,9 @@ function buildSpecialAircraftIndex() {
     } else if (/SPIRIT OF SEATTLE/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'SPIRIT OF SEATTLE', type: 'livery' };
     } else if (/CE WOOLMAN TRIBUTE/i.test(a.s)) {
-      SPECIAL_AIRCRAFT[a.r] = { name: 'CE WOOLMAN TRIBUTE', type: 'livery' };
+      SPECIAL_AIRCRAFT[a.r] = { name: 'CE WOOLMAN TRIBUTE', type: 'named' };
     } else if (/MARIANO RIVERA/i.test(a.s)) {
-      SPECIAL_AIRCRAFT[a.r] = {name: 'MARIANO RIVERA', type: 'livery'};
+      SPECIAL_AIRCRAFT[a.r] = {name: 'MARIANO RIVERA', type: 'named'};
     } else if (/THE DELTA SPIRIT/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'THE DELTA SPIRIT', type: 'livery' };
     }
