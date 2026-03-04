@@ -2244,7 +2244,7 @@ function showFlightPopup(f, marker) {
   if (aircraft) {
     html += `<div class="popup-aircraft">`;
     html += `<div class="popup-aircraft-type">${escapeHtml(aircraft.t)} <span class="ac-reg-link" data-action="aircraft-detail" data-reg="${escapeHtml(aircraft.r)}" style="font-size:10px">${escapeHtml(aircraft.r)}</span></div>`;
-    html += `<div style="font-size:10px;color:var(--dl-muted)">${escapeHtml(aircraft.d || '')} | ${escapeHtml(aircraft.c || '')} | ${escapeHtml(aircraft.w || '')}</div>`;
+    html += `<div style="font-size:10px;color:var(--dl-muted)">${escapeHtml(aircraft.d || '')} | ${escapeHtml(aircraft.i || '')} | ${escapeHtml(aircraft.w || '')}</div>`;
     const popupSpecial = isSpecialAircraft(aircraft.r);
     if (popupSpecial) html += `<span class="special-badge">⭐ ${escapeHtml(popupSpecial.name)}</span> `;
     if (aircraft.seats && Object.keys(aircraft.seats).length > 0) {
