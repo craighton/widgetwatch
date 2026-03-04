@@ -342,7 +342,7 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 .popup-links{display:flex;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid var(--dl-border)}
 .popup-links a{color:var(--dl-accent);text-decoration:none;font-size:10px;opacity:.7;transition:opacity .2s}
 .popup-links a:hover{opacity:1}
-.hub-tooltip{background:rgba(10,14,20,.85)!important;border:1px solid var(--dl-blue)!important;color:var(--dl-accent)!important;font-size:10px!important;font-weight:700!important;padding:2px 6px!important;border-radius:3px!important;font-family:var(--mono)!important}
+.hub-tooltip{background:rgba(10,14,20,.85)!important;border:1px solid var(--dl-blue)!important;color:var(--dl-blue)!important;font-size:10px!important;font-weight:700!important;padding:2px 6px!important;border-radius:3px!important;font-family:var(--mono)!important}
 
 /* ═══ TAB 2: FLEET ═══ */
 #tab-fleet{padding:16px;flex:1;min-height:0;overflow-y:auto}
@@ -1223,12 +1223,12 @@ function categorizeFleetStatus(s) {
   if (s.startsWith('*')) return 'active';
   if (/SPIRIT OF FREEDOM|ANDREW YOUNG TRIBUTE|D-DAY DEDICATION|AMERICAN CANCER SOCIETY|VINCE DOOLEY DEDICATION|SKYTEAM|BREAST CANCER PINK PLANE|CAPTAIN DAVE VORGIAS|THANK YOU PLANE|CIRIUM-PLANTINUM AWARD|TEAM USA|THE DELTA SPIRIT|LA28 SUMMER OLYMPICS|DELTA CENTENNIAL|MILANO CORTINO 2026|ATLANTA BRAVES|SPIRIT OF SEATTLE|CE WOOLMAN TRIBUTE|MARIANO RIVERA/i.test(s)) return 'active';
   if (/stored/i.test(s)) return 'stored';
-  if (/\bpaint\b/i.test(s)) return 'painting';
-  if (/\bmod\s*next\b/i.test(s)) return 'next_retrofit';
-  if (/future\s*gum/i.test(s)) return 'future_gum';
-  if (/maint|induction/i.test(s)) return 'maintenance';
+  if (/paint/i.test(s)) return 'painting';
+  //if (/\bmod\s*next\b/i.test(s)) return 'next_retrofit';
+  //if (/future\s*gum/i.test(s)) return 'future_gum';
+  if (/maint/i.test(s)) return 'maintenance';
   // Notes about NEXT status (Partial NEXT, NEXT???, Confirmed w.o NEXT) — aircraft is active
-  if (/next/i.test(s)) return 'active';
+  //if (/next/i.test(s)) return 'active';
   // Remaining non-empty statuses are likely maintenance at MRO locations
   if (s.trim()) return 'maintenance';
   return 'active';
@@ -1242,23 +1242,23 @@ function buildSpecialAircraftIndex() {
   FLEET_DB.forEach(a => {
     if (!a.s) return;
     if (a.s.startsWith('*')) {
-      SPECIAL_AIRCRAFT[a.r] = { name: a.s.replace(/^\*+|\*+$/g, '').trim(), type: 'named' };
+      SPECIAL_AIRCRAFT[a.r] = { name: a.s.replace(/^\*+|\*+$/g, '').trim(), type: 'livery' };
     } else if (/SPIRIT OF FREEDOM/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'SPIRIT OF FREEDOM', type: 'livery' };
     } else if (/ANDREW YOUNG TRIBUTE/i.test(a.s)) {
-      SPECIAL_AIRCRAFT[a.r] = { name: 'ANDREW YOUNG TRIBUTE', type: 'livery' };
+      SPECIAL_AIRCRAFT[a.r] = { name: 'ANDREW YOUNG TRIBUTE', type: 'named' };
     } else if (/D-DAY DEDICATION/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'D-DAY DEDICATION', type: 'livery' };
     } else if (/AMERICAN CANCER SOCIETY/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'AMERICAN CANCER SOCIETY', type: 'livery' };
     } else if (/VINCE DOOLEY DEDICATION/i.test(a.s)) {
-      SPECIAL_AIRCRAFT[a.r] = { name: 'VINCE DOOLEY DEDICATION', type: 'livery' };
+      SPECIAL_AIRCRAFT[a.r] = { name: 'VINCE DOOLEY DEDICATION', type: 'named' };
     } else if (/SKYTEAM/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'SKYTEAM', type: 'livery' };
     } else if (/BREAST CANCER PINK PLANE/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'BREAST CANCER PINK PLANE', type: 'livery' };
     } else if (/CAPTAIN DAVE VORGIAS/i.test(a.s)) {
-      SPECIAL_AIRCRAFT[a.r] = { name: 'CAPTAIN DAVE VORGIAS', type: 'livery' };
+      SPECIAL_AIRCRAFT[a.r] = { name: 'CAPTAIN DAVE VORGIAS', type: 'named' };
     } else if (/THANK YOU PLANE/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'THANK YOU PLANE', type: 'livery' };
     } else if (/CIRIUM-PLANTINUM AWARD/i.test(a.s)) {
@@ -1276,9 +1276,9 @@ function buildSpecialAircraftIndex() {
     } else if (/SPIRIT OF SEATTLE/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'SPIRIT OF SEATTLE', type: 'livery' };
     } else if (/CE WOOLMAN TRIBUTE/i.test(a.s)) {
-      SPECIAL_AIRCRAFT[a.r] = { name: 'CE WOOLMAN TRIBUTE', type: 'livery' };
+      SPECIAL_AIRCRAFT[a.r] = { name: 'CE WOOLMAN TRIBUTE', type: 'named' };
     } else if (/MARIANO RIVERA/i.test(a.s)) {
-      SPECIAL_AIRCRAFT[a.r] = {name: 'MARIANO RIVERA', type: 'livery'};
+      SPECIAL_AIRCRAFT[a.r] = {name: 'MARIANO RIVERA', type: 'named'};
     } else if (/THE DELTA SPIRIT/i.test(a.s)) {
       SPECIAL_AIRCRAFT[a.r] = { name: 'THE DELTA SPIRIT', type: 'livery' };
     }
@@ -2099,7 +2099,7 @@ function createPlaneIcon(hdg, isLonghaul, phase) {
   const cacheKey = `${hdgRounded}|${isLonghaul?1:0}|${phase}`;
   if (_iconCache[cacheKey]) return _iconCache[cacheKey];
   const color = isLonghaul ? '#fbbf24' : (phase === 'Ground' ? '#6b7280' : '#60a5fa');
-  const size = isLonghaul ? 12 : 12;
+  const size = isLonghaul ? 11 : 11;
   // SVG plane pointing north (0°) — classic top-down aircraft silhouette, cross-platform consistent
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 256 256" fill="${color}" style="filter:drop-shadow(0 0 2px ${color})"><path d="M131.53,25.31c0-13.98-5.56-25.31-12.41-25.31s-12.41,11.33-12.41,25.31h0v60.06S0,159.82,0,159.82v14.89s106.71-29.78,106.71-29.78v59.56s-37.23,24.82-37.23,24.82v9.93s44.67-9.93,44.67-9.93h9.93s44.67,9.93,44.67,9.93v-9.93s-37.23-24.82-37.23-24.82v-59.56s106.71,29.78,106.71,29.78v-14.89s-106.71-74.45-106.71-74.45V25.31Z"/></svg>`;  const icon = L.divIcon({
     html: `<div style="transform:rotate(${hdgRounded}deg);line-height:0">${svg}</div>`,
