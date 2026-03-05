@@ -503,7 +503,7 @@ tbody td{padding:5px 8px;white-space:nowrap}
   /* ── Hide top tab bar, show bottom nav ── */
   #tab-bar{display:none!important}
   #mobile-bottom-nav{display:flex!important}
-  .tab-content{padding-bottom:60px}
+  /*.tab-content{padding-bottom:60px}*/
   /* ── Live Ops ── */
   #tab-live{flex:1;min-height:0}
   #tab-live .ops-layout{flex-direction:column}
@@ -632,8 +632,8 @@ tbody td{padding:5px 8px;white-space:nowrap}
 .onboarding-feature strong{color:var(--dl-accent);display:block}
 .onboarding-desc{color:var(--dl-muted);display:block}
 .onboarding-footer{color:var(--dl-muted);font-size:10px;margin-bottom:20px;opacity:.7}
-#onboarding-dismiss{background:var(--dl-blue);color:#fff;border:none;padding:10px 28px;border-radius:6px;font-family:var(--font-ui);font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.5px;transition:background-color .2s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1)}
-#onboarding-dismiss:hover{background:#1a4d8a}
+#onboarding-dismiss{background:#1a4d8a;color:#fff;border:none;padding:10px 28px;border-radius:6px;font-family:var(--font-ui);font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.5px;transition:background-color .2s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1)}
+#onboarding-dismiss:hover{background:var(--dl-blue)}
 #onboarding-help{background:none;border:1px solid var(--dl-border);color:var(--dl-muted);width:22px;height:22px;border-radius:50%;font-family:var(--font-ui);font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);padding:0;line-height:1}
 #onboarding-help:hover{border-color:var(--dl-blue);color:var(--dl-accent)}
 @keyframes obFadeIn{from{opacity:0}to{opacity:1}}
@@ -796,7 +796,7 @@ table,thead th,tbody td,.stat-val,.metric-val,.big-number,.ticker,.ticker-item,.
 
 <!-- HEADER -->
 <div id="header">
-  <h1><a href="#" data-action="go-home" style="text-decoration:none;color:inherit;cursor:pointer"><span class="dl">WIDGET WATCH</span></a> <span style="font-size:9px;color:var(--dl-muted);font-weight:300;letter-spacing:0.5px">FOR DELTA FLYERS, BY DELTA FLYERS</span></h1>
+  <h1><a href="#" data-action="go-home" style="text-decoration:none;color:inherit;cursor:pointer"><span class="dl">WIDGET</span>WATCH</a> <span style="font-size:9px;color:var(--dl-muted);font-weight:300;letter-spacing:0.5px">FOR DELTA FLYERS, BY DELTA FLYERS</span></h1>
   <div id="global-search-wrap" style="position:relative;flex:0 1 300px">
     <input type="text" id="global-search-input" aria-label="Global flight search" placeholder="Track a flight (DL1234, N527DN, ATL...)" style="width:100%;background:rgba(15,23,41,.8);border:1px solid var(--dl-border);color:var(--dl-text);padding:6px 10px;border-radius:4px;font-family:var(--mono);font-size:11px">
     <div id="global-search-results" style="position:absolute;top:34px;left:0;right:0;background:rgba(17,24,39,.95);border:1px solid var(--dl-border);border-radius:4px;max-height:300px;overflow-y:auto;display:none;z-index:9999;backdrop-filter:blur(8px)"></div>
