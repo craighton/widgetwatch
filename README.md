@@ -21,7 +21,7 @@ Widget Watch is a fan-built operations dashboard that lets you see Delta Air Lin
 ### 📡 [Live Ops](https://widgetwatch.org#live)
 Real-time map tracking 600+ Delta flights, updated every 30 seconds. Filter by hub, toggle longhaul routes, overlay NEXRAD weather radar. Hub status sidebar shows departure/arrival counts and identifies the busiest hub. Search any flight by number, tail, or route. Great circle route lines show flight paths with city names.
 
-### ⚠️ IRROPS Monitor
+### ⚠️ IROPS Monitor
 Server-side disruption scoring across all 9 hubs — cancellations, delays (30m/60m), diversions, and FAA ground stops. Preloaded automatically on page load with 5-minute server-side caching. No manual trigger needed.
 
 ### 📅 [Schedule](https://widgetwatch.org#schedule)
@@ -70,7 +70,7 @@ Look up any Delta flight number from the header search bar. Returns live positio
     │  /api/schedule    — FR24 schedule proxy   │
     │                     (cached, rate-limited │
     │                      DL-filtered)         │
-    │  /api/irrops      — Precomputed IRROPS    │
+    │  /api/irops      — Precomputed IROPS    │
     │                     metrics (5min cache)  │
     │  /api/fr24-feed   — Live flight positions │
     │  /api/fr24-flight — Flight lookup         │
@@ -85,7 +85,7 @@ Look up any Delta flight number from the header search bar. Returns live positio
 ### Why Server-Side Proxies?
 
 - **Rate limiting** — One server fetches data for all users, not 500 browsers hammering APIs independently
-- **Caching** — Schedule data cached 60s (live) / 5min (historical), IRROPS cached 5min, reducing upstream load by 90%+
+- **Caching** — Schedule data cached 60s (live) / 5min (historical), IROPS cached 5min, reducing upstream load by 90%+
 - **DL filtering** — Server filters to Delta flights only, shrinking payloads dramatically
 - **CORS** — Some sources (AWC, FAA) don't allow direct browser requests
 - **Batching** — METAR data for all 9 hubs fetched in a single request
@@ -151,7 +151,7 @@ Look up any Delta flight number from the header search bar. Returns live positio
 │   └── sitemap.xml      # Sitemap (homepage + all hub pages)
 ├── api/
 │   ├── schedule.js      # FR24 schedule proxy (cached, rate-limited, DL-filtered)
-│   ├── irrops.js        # Server-side IRROPS aggregation (all hubs, 5min cache)
+│   ├── irops.js        # Server-side IROPS aggregation (all hubs, 5min cache)
 │   ├── fr24-feed.js     # FR24 live flight feed proxy
 │   ├── fr24-flight.js   # FR24 official API flight lookup
 │   ├── metar.js         # AWC METAR weather proxy (supports batched station IDs)

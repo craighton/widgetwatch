@@ -73,12 +73,12 @@ atl: {
   <!-- Dive Deep -->
   <div class="section">
     <h2>Dive Deep at Widget Watch</h2>
-    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IRROPS monitoring, updated in real-time.</p>
+    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IROPS monitoring, updated in real-time.</p>
     <p>This page gives you the overview — but the real action is on the dashboard. Track every Delta flight at ATL in real time, set up flight watch alerts, check equipment swaps, and monitor weather radar overlaid on the live map.</p>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
       <a class="cta" href="/?hub=atl" style="margin:0">🗺️ Live ATL Map</a>
       <a class="cta" href="/?tab=schedule&hub=atl" style="margin:0">📋 ATL Schedules</a>
-      <a class="cta" href="/?tab=irrops&hub=atl" style="margin:0">⚠️ IRROPS Monitor</a>
+      <a class="cta" href="/?tab=irops&hub=atl" style="margin:0">⚠️ IROPS Monitor</a>
     </div>
   </div>
 
@@ -194,12 +194,12 @@ lga: {
   <!-- Dive Deep -->
   <div class="section">
     <h2>Dive Deep at Widget Watch</h2>
-    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IRROPS monitoring, updated in real-time.</p>
+    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IROPS monitoring, updated in real-time.</p>
     <p>This page gives you the overview — but the real action is on the dashboard. Track every Delta flight at LGA in real time, set up flight watch alerts, check equipment swaps, and monitor weather radar overlaid on the live map.</p>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
       <a class="cta" href="/?hub=lga" style="margin:0">🗺️ Live LGA Map</a>
       <a class="cta" href="/?tab=schedule&hub=lga" style="margin:0">📋 LGA Schedules</a>
-      <a class="cta" href="/?tab=irrops&hub=lga" style="margin:0">⚠️ IRROPS Monitor</a>
+      <a class="cta" href="/?tab=irops&hub=lga" style="margin:0">⚠️ IROPS Monitor</a>
     </div>
   </div>
 
@@ -313,12 +313,12 @@ jfk: {
   <!-- Dive Deep -->
   <div class="section">
     <h2>Dive Deep at Widget Watch</h2>
-    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IRROPS monitoring, updated in real-time.</p>
+    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IROPS monitoring, updated in real-time.</p>
     <p>This page gives you the overview — but the real action is on the dashboard. Track every Delta flight at JFK in real time, set up flight watch alerts, check equipment swaps, and monitor weather radar overlaid on the live map.</p>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
       <a class="cta" href="/?hub=jfk" style="margin:0">🗺️ Live JFK Map</a>
       <a class="cta" href="/?tab=schedule&hub=jfk" style="margin:0">📋 JFK Schedules</a>
-      <a class="cta" href="/?tab=irrops&hub=jfk" style="margin:0">⚠️ IRROPS Monitor</a>
+      <a class="cta" href="/?tab=irops&hub=jfk" style="margin:0">⚠️ IROPS Monitor</a>
     </div>
   </div>
 
@@ -433,12 +433,12 @@ bos: {
   <!-- Dive Deep -->
   <div class="section">
     <h2>Dive Deep at Widget Watch</h2>
-    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IRROPS monitoring, updated in real-time.</p>
+    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IROPS monitoring, updated in real-time.</p>
     <p>This page gives you the overview — but the real action is on the dashboard. Track every Delta flight at BOS in real time, set up flight watch alerts, check equipment swaps, and monitor weather radar overlaid on the live map.</p>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
       <a class="cta" href="/?hub=bos" style="margin:0">🗺️ Live BOS Map</a>
       <a class="cta" href="/?tab=schedule&hub=bos" style="margin:0">📋 BOS Schedules</a>
-      <a class="cta" href="/?tab=irrops&hub=bos" style="margin:0">⚠️ IRROPS Monitor</a>
+      <a class="cta" href="/?tab=irops&hub=bos" style="margin:0">⚠️ IROPS Monitor</a>
     </div>
   </div>
 
@@ -553,12 +553,12 @@ dtw: {
   <!-- Dive Deep -->
   <div class="section">
     <h2>Dive Deep at Widget Watch</h2>
-    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IRROPS monitoring, updated in real-time.</p>
+    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IROPS monitoring, updated in real-time.</p>
     <p>This page gives you the overview — but the real action is on the dashboard. Track every Delta flight at DTW in real time, set up flight watch alerts, check equipment swaps, and monitor weather radar overlaid on the live map.</p>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
       <a class="cta" href="/?hub=dtw" style="margin:0">🗺️ Live DTW Map</a>
       <a class="cta" href="/?tab=schedule&hub=dtw" style="margin:0">📋 DTW Schedules</a>
-      <a class="cta" href="/?tab=irrops&hub=dtw" style="margin:0">⚠️ IRROPS Monitor</a>
+      <a class="cta" href="/?tab=irops&hub=dtw" style="margin:0">⚠️ IROPS Monitor</a>
     </div>
   </div>
 
@@ -673,12 +673,12 @@ msp: {
   <!-- Dive Deep -->
   <div class="section">
     <h2>Dive Deep at Widget Watch</h2>
-    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IRROPS monitoring, updated in real-time.</p>
+    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IROPS monitoring, updated in real-time.</p>
     <p>This page gives you the overview — but the real action is on the dashboard. Track every Delta flight at MSP in real time, set up flight watch alerts, check equipment swaps, and monitor weather radar overlaid on the live map.</p>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
       <a class="cta" href="/?hub=msp" style="margin:0">🗺️ Live MSP Map</a>
       <a class="cta" href="/?tab=schedule&hub=msp" style="margin:0">📋 MSP Schedules</a>
-      <a class="cta" href="/?tab=irrops&hub=msp" style="margin:0">⚠️ IRROPS Monitor</a>
+      <a class="cta" href="/?tab=irops&hub=msp" style="margin:0">⚠️ IROPS Monitor</a>
     </div>
   </div>
 
@@ -793,12 +793,12 @@ slc: {
   <!-- Dive Deep -->
   <div class="section">
     <h2>Dive Deep at Widget Watch</h2>
-    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IRROPS monitoring, updated in real-time.</p>
+    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IROPS monitoring, updated in real-time.</p>
     <p>This page gives you the overview — but the real action is on the dashboard. Track every Delta flight at SLC in real time, set up flight watch alerts, check equipment swaps, and monitor weather radar overlaid on the live map.</p>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
       <a class="cta" href="/?hub=slc" style="margin:0">🗺️ Live SLC Map</a>
       <a class="cta" href="/?tab=schedule&hub=slc" style="margin:0">📋 SLC Schedules</a>
-      <a class="cta" href="/?tab=irrops&hub=slc" style="margin:0">⚠️ IRROPS Monitor</a>
+      <a class="cta" href="/?tab=irops&hub=slc" style="margin:0">⚠️ IROPS Monitor</a>
     </div>
   </div>
 
@@ -913,12 +913,12 @@ lax: {
   <!-- Dive Deep -->
   <div class="section">
     <h2>Dive Deep at Widget Watch</h2>
-    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IRROPS monitoring, updated in real-time.</p>
+    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IROPS monitoring, updated in real-time.</p>
     <p>This page gives you the overview — but the real action is on the dashboard. Track every Delta flight at LAX in real time, set up flight watch alerts, check equipment swaps, and monitor weather radar overlaid on the live map.</p>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
       <a class="cta" href="/?hub=lax" style="margin:0">🗺️ Live LAX Map</a>
       <a class="cta" href="/?tab=schedule&hub=lax" style="margin:0">📋 LAX Schedules</a>
-      <a class="cta" href="/?tab=irrops&hub=lax" style="margin:0">⚠️ IRROPS Monitor</a>
+      <a class="cta" href="/?tab=irops&hub=lax" style="margin:0">⚠️ IROPS Monitor</a>
     </div>
   </div>
 
@@ -1035,12 +1035,12 @@ sea: {
   <!-- Dive Deep -->
   <div class="section">
     <h2>Dive Deep at Widget Watch</h2>
-    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IRROPS monitoring, updated in real-time.</p>
+    <p><strong>Widget Watch</strong> is the only real-time operations dashboard built specifically for Delta Air Lines passengers. Live flight tracking, delay alerts, and IROPS monitoring, updated in real-time.</p>
     <p>This page gives you the overview — but the real action is on the dashboard. Track every Delta flight at SEA in real time, set up flight watch alerts, check equipment swaps, and monitor weather radar overlaid on the live map.</p>
     <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px">
       <a class="cta" href="/?hub=sea" style="margin:0">🗺️ Live SEA Map</a>
       <a class="cta" href="/?tab=schedule&hub=sea" style="margin:0">📋 SEA Schedules</a>
-      <a class="cta" href="/?tab=irrops&hub=sea" style="margin:0">⚠️ IRROPS Monitor</a>
+      <a class="cta" href="/?tab=irops&hub=sea" style="margin:0">⚠️ IROPS Monitor</a>
     </div>
   </div>
 
