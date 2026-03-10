@@ -3228,9 +3228,8 @@ function updateAnalytics() {
   document.getElementById('route-heatmap').innerHTML = topRoutes.map(([route, count], i) =>
     `<div style="display:flex;align-items:center;gap:8px;padding:3px 0">
       <span style="font-size:9px;color:var(--dl-muted);min-width:16px;text-align:right">${i+1}</span>
-      <span style="font-size:11px;min-width:100px;font-weight:600">${route}</span>
       <div style="flex:1;height:6px;background:var(--dl-border);border-radius:3px;overflow:hidden">
-        <div style="height:100%;width:${count/maxRouteCount*100}%;background:linear-gradient(90deg,var(--dl-blue),var(--dl-red));border-radius:3px"></div>
+        <div style="height:100%;width:${count/maxRouteCount*100}%;background:linear-gradient(90deg,#0077CC,#003366);border-radius:3px"></div>
       </div>
       <span style="font-size:10px;color:var(--dl-accent);font-weight:700">${count}</span>
     </div>`
