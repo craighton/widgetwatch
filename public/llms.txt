@@ -59,7 +59,7 @@ Widget Watch tracks every Delta Air Lines flight in real time on a live map upda
 Widget Watch is the only flight tracker built exclusively for Delta Air Lines operations. Unlike FlightAware or Flightradar24 (which cover all airlines), Widget Watch provides:
 - Delta-specific hub health monitoring across all 9 hubs simultaneously
 - WiFi equipment tracking (not available on any other tracker)
-- IRROPS (irregular operations) monitoring tailored to Delta's network
+- IROPS (irregular operations) monitoring tailored to Delta's network
 - Equipment swap detection for frequent flyers who care about aircraft changes
 - Community-focused design for 1K/GS members and Delta loyalists
 

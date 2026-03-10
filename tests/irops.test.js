@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { computeMetrics, getStartOfDayForHub } from '../api/irrops.js';
+import { computeMetrics, getStartOfDayForHub } from '../api/irops.js';
 
 // Helper to build a flight object matching FR24's schedule structure
 function makeFlight(hub, {

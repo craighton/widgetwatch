@@ -18,7 +18,7 @@
   When adding/removing a hub, update ALL of these locations:
     public/index.html  — AIRPORTS (hub:true), SCHED_HUB_TZ, hubCodes arrays,
                          hub health bar HTML, SEO metadata
-    api/irrops.js      — HUBS array
+    api/irops.js      — HUBS array
     public/sitemap.xml — hub page entries
     public/hubs/       — individual hub HTML pages + cross-nav
   ═══════════════════════════════════════════════════════════════
@@ -124,7 +124,7 @@
       "name": "Are there delays at Delta Air Lines hubs today?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Widget Watch monitors delays, cancellations, and ground stops at all 9 Delta hubs (Chicago O'Hare, Denver, Houston, Newark, San Francisco, Dulles, Los Angeles, Tokyo Narita, and Guam) in real time. The hub health bar shows on-time performance, and the IRROPS monitor breaks down disruption types at each hub."
+        "text": "Widget Watch monitors delays, cancellations, and ground stops at all 9 Delta hubs (Chicago O'Hare, Denver, Houston, Newark, San Francisco, Dulles, Los Angeles, Tokyo Narita, and Guam) in real time. The hub health bar shows on-time performance, and the IROPS monitor breaks down disruption types at each hub."
       }
     },
     {
@@ -199,7 +199,7 @@
 <link rel="preload" href="https://a.basemaps.cartocdn.com/dark_all/4/3/5.png" as="image" fetchpriority="high">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--dl-blue:#7799CC;--dl-dark:#0a0e14;--dl-panel:#111827;--dl-border:#1e293b;--dl-text:#e2e8f0;--dl-muted:#94a3b8;--dl-accent:#7799CC;--dl-green:#22c55e;--dl-yellow:#eab308;--dl-red:#ef4444;--bg-card:#111827;--font-ui:'Inter',system-ui,-apple-system,sans-serif;--font-mono:'JetBrains Mono',monospace;--mono:'JetBrains Mono',monospace}
+:root{--dl-blue:#7799CC;--dl-dark:#0a0e14;--dl-panel:#111827;--dl-border:#1e293b;--dl-text:#e2e8f0;--dl-muted:#94a3b8;--dl-accent:#60a5fa;--dl-green:#22c55e;--dl-yellow:#eab308;--dl-red:#ef4444;--bg-card:#111827;--font-ui:'Inter',system-ui,-apple-system,sans-serif;--font-mono:'JetBrains Mono',monospace;--mono:'JetBrains Mono',monospace}
 body{background:var(--dl-dark);color:var(--dl-text);font-family:var(--font-ui);overflow:hidden;font-size:12px;height:100vh;height:100dvh;display:flex;flex-direction:column}
 body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(30,41,59,.15) 50px),repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(30,41,59,.15) 50px);pointer-events:none;z-index:0}
 
@@ -247,10 +247,6 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 .ctrl-btn{background:rgba(10,14,20,.9);border:1px solid var(--dl-border);color:#ccc;padding:5px 10px;border-radius:4px;cursor:pointer;font-size:10px;font-family:var(--font-mono);backdrop-filter:blur(8px);transition:background-color .2s cubic-bezier(.4,0,.2,1),border-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1),transform .15s cubic-bezier(.4,0,.2,1)}
 .ctrl-btn:hover{background:rgba(0,58,112,.3);border-color:var(--dl-blue)}
 .ctrl-btn.active{border-color:var(--dl-accent);color:var(--dl-accent)}
-#search-box{position:absolute;top:10px;left:10px;z-index:1000}
-#search-input{background:rgba(10,14,20,.9);border:1px solid var(--dl-border);color:var(--dl-text);padding:7px 12px;border-radius:4px;font-family:var(--mono);font-size:11px;width:220px;backdrop-filter:blur(8px)}
-#search-input:focus{outline:none;border-color:var(--dl-blue)}
-#search-results{position:absolute;top:34px;left:0;background:rgba(17,24,39,.95);border:1px solid var(--dl-border);border-radius:4px;max-height:300px;overflow-y:auto;width:280px;display:none;backdrop-filter:blur(8px)}
 .search-result{padding:6px 12px;cursor:pointer;border-bottom:1px solid rgba(30,41,59,.3);font-size:11px}
 .search-result:hover{background:rgba(0,58,112,.15)}
 
@@ -330,12 +326,12 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 .popup-times .time-delta.late{color:#ef4444}
 .popup-times .time-delta.early{color:#22c55e}
 .popup-times .time-delta.ontime{color:var(--dl-muted)}
-.popup-times-loading{font-size:10px;color:var(--dl-muted);text-align:center;padding:6px;animation:pulse 1.5s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.popup-times-loading{font-size:10px;color:var(--dl-muted);text-align:center;padding:6px;animation:pulse-fade 1.5s ease-in-out infinite}
+@keyframes pulse-fade{0%,100%{opacity:1}50%{opacity:.4}}
 .popup-links{display:flex;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid var(--dl-border)}
 .popup-links a{color:var(--dl-accent);text-decoration:none;font-size:10px;opacity:.7;transition:opacity .2s}
 .popup-links a:hover{opacity:1}
-.hub-tooltip{background:rgba(10,14,20,.85)!important;border:1px solid var(--dl-blue)!important;color:var(--dl-blue)!important;font-size:10px!important;font-weight:700!important;padding:2px 6px!important;border-radius:3px!important;font-family:var(--mono)!important}
+.hub-tooltip{background:rgba(10,14,20,.85)!important;border:1px solid var(--dl-blue)!important;color:#ffffff!important;font-size:10px!important;font-weight:700!important;padding:2px 6px!important;border-radius:3px!important;font-family:var(--mono)!important}
 
 /* ═══ TAB 2: FLEET ═══ */
 #tab-fleet{padding:16px;flex:1;min-height:0;overflow-y:auto}
@@ -381,7 +377,7 @@ tbody td{padding:5px 8px;white-space:nowrap}
 
 /* Special Aircraft Badge & Tracker */
 .special-badge{background:rgba(139,92,246,.2);color:#a78bfa;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:700;font-family:var(--font-mono)}
-.special-airborne-badge{background:rgba(34,197,94,.25);color:var(--dl-green);padding:2px 6px;border-radius:3px;font-size:9px;font-weight:700;font-family:var(--font-mono);animation:pulse 1.5s ease-in-out infinite}
+.special-airborne-badge{background:rgba(34,197,94,.25);color:var(--dl-green);padding:2px 6px;border-radius:3px;font-size:9px;font-weight:700;font-family:var(--font-mono);animation:pulse-fade 1.5s ease-in-out infinite}
 .special-aircraft-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
 .special-aircraft-item{background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.2);border-radius:4px;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;gap:8px}
 .special-aircraft-item .sa-name{font-size:11px;font-weight:700;color:#a78bfa}
@@ -655,21 +651,21 @@ tbody td{padding:5px 8px;white-space:nowrap}
 .fleet-enrich-detail.show{display:block}
 .fleet-enrich-inline{font-size:9px;color:var(--dl-muted);margin-top:1px}
 
-/* IRROPS Monitor */
-#irrops-section{padding:16px;border-bottom:1px solid var(--dl-border)}
-#irrops-section h3{font-size:13px;color:#f59e0b;margin-bottom:12px}
-.irrops-metrics{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:14px}
-.irrops-card{background:var(--dl-panel);border:1px solid var(--dl-border);border-radius:6px;padding:10px;text-align:center}
-.irrops-card .iv{font-size:22px;font-weight:700}
-.irrops-card .il{font-size:9px;color:var(--dl-muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
-.irrops-score{display:inline-block;padding:4px 12px;border-radius:4px;font-size:16px;font-weight:700;margin-bottom:10px}
-.irrops-score.low{background:rgba(34,197,94,.15);color:#22c55e}
-.irrops-score.med{background:rgba(245,158,11,.15);color:#f59e0b}
-.irrops-score.high{background:rgba(239,68,68,.15);color:#ef4444}
-.irrops-worst{margin-top:10px}
-.irrops-worst h4{font-size:10px;color:var(--dl-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.irrops-worst-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(30,41,59,.3);font-size:10px}
-.irrops-empty{text-align:center;padding:30px;color:var(--dl-muted);font-size:11px}
+/* IROPS Monitor */
+#irops-section{padding:16px;border-bottom:1px solid var(--dl-border)}
+#irops-section h3{font-size:13px;color:#f59e0b;margin-bottom:12px}
+.irops-metrics{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:14px}
+.irops-card{background:var(--dl-panel);border:1px solid var(--dl-border);border-radius:6px;padding:10px;text-align:center}
+.irops-card .iv{font-size:22px;font-weight:700}
+.irops-card .il{font-size:9px;color:var(--dl-muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.irops-score{display:inline-block;padding:4px 12px;border-radius:4px;font-size:16px;font-weight:700;margin-bottom:10px}
+.irops-score.low{background:rgba(34,197,94,.15);color:#22c55e}
+.irops-score.med{background:rgba(245,158,11,.15);color:#f59e0b}
+.irops-score.high{background:rgba(239,68,68,.15);color:#ef4444}
+.irops-worst{margin-top:10px}
+.irops-worst h4{font-size:10px;color:var(--dl-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.irops-worst-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(30,41,59,.3);font-size:10px}
+.irops-empty{text-align:center;padding:30px;color:var(--dl-muted);font-size:11px}
 
 /* FAA Delay Context */
 .faa-delay-context{font-size:9px;color:#f59e0b;font-style:italic;margin-top:2px;opacity:.85}
@@ -704,8 +700,8 @@ tbody td{padding:5px 8px;white-space:nowrap}
 #watch-notification .wn-dismiss{background:none;border:1px solid rgba(255,255,255,.3);color:#fff;padding:4px 10px;border-radius:3px;cursor:pointer;font-family:var(--font-ui);font-size:10px}
 
 /* ═══ HYBRID TYPOGRAPHY: Mono for data elements ═══ */
-table,thead th,tbody td,.stat-val,.metric-val,.big-number,.hub-code,.hub-card-code,.popup-callsign,.popup-field-value,.popup-route,.hub-raw,.hub-tooltip,.sched-status,#countdown,#clock,.irrops-card .iv,.irrops-score,.hh-hub,.fleet-chip .count,.equip-change-badge,.cat-badge,.hub-metric-val,.popup-phase,.seat-block,.freshness,.squawk-alert{font-family:var(--font-mono)}
-.onboarding-subtitle,.onboarding-desc,.onboarding-footer,.source-desc,.hub-explainer,.wx-explainer,.error-state,.empty-state,.hub-card-name,.stat-label,.metric-label,.big-number-label,.irrops-card .il,.hub-metric-label,.popup-field-label,.popup-route-est,.source-name,.source-link{font-family:var(--font-ui)}
+table,thead th,tbody td,.stat-val,.metric-val,.big-number,.hub-code,.hub-card-code,.popup-callsign,.popup-field-value,.popup-route,.hub-raw,.hub-tooltip,.sched-status,#countdown,#clock,.irops-card .iv,.irops-score,.hh-hub,.fleet-chip .count,.equip-change-badge,.cat-badge,.hub-metric-val,.popup-phase,.seat-block,.freshness,.squawk-alert{font-family:var(--font-mono)}
+.onboarding-subtitle,.onboarding-desc,.onboarding-footer,.source-desc,.hub-explainer,.wx-explainer,.error-state,.empty-state,.hub-card-name,.stat-label,.metric-label,.big-number-label,.irops-card .il,.hub-metric-label,.popup-field-label,.popup-route-est,.source-name,.source-link{font-family:var(--font-ui)}
 
 /* ═══ MICRO-INTERACTIONS: :active press feedback ═══ */
 .tab-btn:active,.ctrl-btn:active,.refresh-btn:active,.retry-btn:active,.sched-day-btn:active,.sched-load-more:active,#onboarding-dismiss:active,#onboarding-help:active,.watch-btn:active,.share-btn:active,#watch-header-btn:active,#mobile-bottom-nav button:active,.fleet-chip:active,.hub-nav a:active,.show-all-btn:active{transform:scale(.97)}
@@ -714,7 +710,7 @@ table,thead th,tbody td,.stat-val,.metric-val,.big-number,.hub-code,.hub-card-co
 @keyframes shimmerSlide{0%{background-position:-200% 0}100%{background-position:200% 0}}
 .shimmer-loader{background:linear-gradient(90deg,var(--dl-panel) 25%,rgba(30,41,59,.6) 50%,var(--dl-panel) 75%);background-size:200% 100%;animation:shimmerSlide 1.5s ease-in-out infinite;border-radius:4px;color:transparent!important}
 .shimmer-loader *{visibility:hidden}
-.irrops-empty,.popup-times-loading{background:linear-gradient(90deg,var(--dl-panel) 25%,rgba(30,41,59,.6) 50%,var(--dl-panel) 75%);background-size:200% 100%;animation:shimmerSlide 1.5s ease-in-out infinite;border-radius:4px}
+.irops-empty,.popup-times-loading{background:linear-gradient(90deg,var(--dl-panel) 25%,rgba(30,41,59,.6) 50%,var(--dl-panel) 75%);background-size:200% 100%;animation:shimmerSlide 1.5s ease-in-out infinite;border-radius:4px}
 
 /* ═══ MOBILE SCROLL FADE MASKS ═══ */
 @media(max-width:768px){
@@ -1018,10 +1014,10 @@ table,thead th,tbody td,.stat-val,.metric-val,.big-number,.hub-code,.hub-card-co
     <div class="wx-legend-item"><span class="wx-legend-dot" style="background:#c026d3"></span>LIFR</div>
   </div>
   <div class="hub-cards" id="hub-cards"></div>
-  <!-- IRROPS Monitor -->
-  <div id="irrops-section">
-    <h3>⚠️ IRROPS Monitor</h3>
-    <div id="irrops-content" aria-live="polite"><div class="irrops-empty" style="color:var(--dl-muted);font-size:10px">Loading IRROPS data…</div></div>
+  <!-- IROPS Monitor -->
+  <div id="irops-section">
+    <h3>⚠️ IROPS Monitor</h3>
+    <div id="irops-content" aria-live="polite"><div class="irops-empty" style="color:var(--dl-muted);font-size:10px">Loading IROPS data…</div></div>
   </div>
 </div>
 
@@ -1150,7 +1146,7 @@ table,thead th,tbody td,.stat-val,.metric-val,.big-number,.hub-code,.hub-card-co
 //   3. SCHED_HUB_TZ — search "SCHED_HUB_TZ"
 //   4. preloadHubs in schedule init — search "preloadHubs"
 //   5. hubs arrays in hub health bar render — search "const hubs = ["
-//   6. HUBS in api/irrops.js
+//   6. HUBS in api/irops.js
 //   7. Hub health bar HTML (#hub-health-bar)
 //   8. public/sitemap.xml
 //   9. public/hubs/*.html (individual hub pages + nav in each)
@@ -1566,7 +1562,7 @@ document.getElementById('tab-bar')?.addEventListener('keydown', function(e) {
     'schedule': 'tab-schedule',
     'fleet': 'tab-fleet',
     'weather': 'tab-weather',
-    'irrops': 'tab-weather',  // IRROPS lives inside weather tab
+    'irops': 'tab-weather',  // IROPS lives inside weather tab
     'stats': 'tab-analytics',
     'sources': 'tab-sources'
   };
@@ -1580,9 +1576,9 @@ document.getElementById('tab-bar')?.addEventListener('keydown', function(e) {
   // After tab switch, handle sub-navigation
   requestAnimationFrame(() => {
     setTimeout(() => {
-      // Scroll to IRROPS section if requested
-      if (tab === 'irrops') {
-        const el = document.getElementById('irrops-section');
+      // Scroll to IROPS section if requested
+      if (tab === 'irops') {
+        const el = document.getElementById('irops-section');
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
@@ -2977,8 +2973,8 @@ function parseMetarQuick(raw) {
 async function initWeatherTab() {
   if (weatherInitialized) return;
   weatherInitialized = true;
-  // Ensure IRROPS data is loading (may not have fired from idle preload yet)
-  fetchIrropsFromAPI();
+  // Ensure IROPS data is loading (may not have fired from idle preload yet)
+  fetchIropsFromAPI();
 
   const hubStations = {ATL:'KATL',LGA:'KLGA',JFK:'KJFK',BOS:'KBOS',DTW:'KDTW',LAX:'KLAX',MSP:'KMSP',SLC:'KSLC',SEA:'KSEA'};
   const hubs = Object.keys(hubStations);
@@ -3024,7 +3020,7 @@ async function initWeatherTab() {
   // Index FAA delays by airport code
   const faaIndex = {};
   if (Array.isArray(faaData)) faaData.forEach(d => { faaIndex[d.airportCode||d.airport] = d; });
-  // Store globally for IRROPS & schedule cross-reference
+  // Store globally for IROPS & schedule cross-reference
   faaDelayIndex = faaIndex;
 
   // Build cards + map markers
@@ -3586,7 +3582,7 @@ async function preloadScheduleData() {
   });
   if (loaded > 0) {
     updateHubHealth();
-    updateIrrops();
+    updateIrops();
   }
 }
 
@@ -3662,10 +3658,10 @@ async function loadScheduleData() {
     const timestamp = getSchedDayTimestamp(schedCurrentDay);
     const hubKey = `${schedCurrentHub}-${schedCurrentDir}-${schedCurrentDay}`;
 
-    // Check if IRROPS already hydrated this data
+    // Check if IROPS already hydrated this data
     let result;
     if (schedRawByHub[hubKey] && schedRawByHub[hubKey].length) {
-      result = { flights: schedRawByHub[hubKey], cached: true, fromIrrops: true };
+      result = { flights: schedRawByHub[hubKey], cached: true, fromIrops: true };
     } else {
       // Retry with exponential backoff (up to 3 attempts)
       const MAX_RETRIES = 3;
@@ -3702,7 +3698,7 @@ async function loadScheduleData() {
     renderScheduleTable();
     renderScheduleStats();
     updateHubHealth();
-    updateIrrops();
+    updateIrops();
     checkWatchedFlightChanges(allDLFlights);
   } catch (err) {
     console.error('Schedule load error:', err);
@@ -4296,11 +4292,11 @@ function updateHubHealth() {
   bar.innerHTML = html;
 }
 
-// ═══ IRROPS DASHBOARD ═══
+// ═══ IROPS DASHBOARD ═══
 let faaDelayIndex = {};
 
-function updateIrrops() {
-  const content = document.getElementById('irrops-content');
+function updateIrops() {
+  const content = document.getElementById('irops-content');
   // Gather all schedule data, tracking hub per flight for accurate origin display
   let allSchedFlts = [];
   for (const [key, flights] of Object.entries(schedRawByHub)) {
@@ -4313,7 +4309,7 @@ function updateIrrops() {
   }
 
   if (allSchedFlts.length === 0) {
-    content.innerHTML = '<div class="irrops-empty">Load schedule data from the Schedule tab to see IRROPS metrics<br><button class="retry-btn" style="margin-top:8px" data-action="irrops-load">📅 Load Schedule Data</button></div>';
+    content.innerHTML = '<div class="irops-empty">Load schedule data from the Schedule tab to see IROPS metrics<br><button class="retry-btn" style="margin-top:8px" data-action="irops-load">📅 Load Schedule Data</button></div>';
     return;
   }
 
@@ -4348,18 +4344,18 @@ function updateIrrops() {
 
   const score = totalFlights > 0 ? ((cancellations * 3 + delayed60 * 2 + delayed30 + diversions * 2) / totalFlights * 100).toFixed(1) : 0;
   const scoreCls = score < 5 ? 'low' : score < 15 ? 'med' : 'high';
-  const scoreLabel = score < 5 ? 'Normal Ops' : score < 15 ? 'Minor Disruptions' : 'Significant IRROPS';
+  const scoreLabel = score < 5 ? 'Normal Ops' : score < 15 ? 'Minor Disruptions' : 'Significant IROPS';
 
   worstDelays.sort((a, b) => b.delay - a.delay);
   const top5 = worstDelays.slice(0, 5);
 
-  let html = `<div style="margin-bottom:10px"><span class="irrops-score ${scoreCls}">${score}</span> <span style="font-size:10px;color:var(--dl-muted)">${scoreLabel} · Disruption Score</span></div>`;
-  html += '<div class="irrops-metrics">';
-  html += `<div class="irrops-card"><div class="iv" style="color:#f59e0b">${delayed30}</div><div class="il">Delayed &gt;30m</div></div>`;
-  html += `<div class="irrops-card"><div class="iv" style="color:#ef4444">${delayed60}</div><div class="il">Delayed &gt;60m</div></div>`;
-  html += `<div class="irrops-card"><div class="iv" style="color:#c026d3">${diversions}</div><div class="il">Diversions</div></div>`;
-  html += `<div class="irrops-card"><div class="iv" style="color:#ef4444">${groundStops}</div><div class="il">Ground Stops (FAA)</div></div>`;
-  html += `<div class="irrops-card"><div class="iv" style="color:var(--dl-blue)">${totalFlights}</div><div class="il">Total Flights</div></div>`;
+  let html = `<div style="margin-bottom:10px"><span class="irops-score ${scoreCls}">${score}</span> <span style="font-size:10px;color:var(--dl-muted)">${scoreLabel} · Disruption Score</span></div>`;
+  html += '<div class="irops-metrics">';
+  html += `<div class="irops-card"><div class="iv" style="color:#f59e0b">${delayed30}</div><div class="il">Delayed &gt;30m</div></div>`;
+  html += `<div class="irops-card"><div class="iv" style="color:#ef4444">${delayed60}</div><div class="il">Delayed &gt;60m</div></div>`;
+  html += `<div class="irops-card"><div class="iv" style="color:#c026d3">${diversions}</div><div class="il">Diversions</div></div>`;
+  html += `<div class="irops-card"><div class="iv" style="color:#ef4444">${groundStops}</div><div class="il">Ground Stops (FAA)</div></div>`;
+  html += `<div class="irops-card"><div class="iv" style="color:var(--dl-blue)">${totalFlights}</div><div class="il">Total Flights</div></div>`;
   html += '</div>';
 
   // FAA alerts
@@ -4374,9 +4370,9 @@ function updateIrrops() {
   }
 
   if (top5.length) {
-    html += '<div class="irrops-worst"><h4>Most Disrupted Flights</h4>';
+    html += '<div class="irops-worst"><h4>Most Disrupted Flights</h4>';
     top5.forEach(f => {
-      html += `<div class="irrops-worst-row"><span style="color:var(--dl-accent);font-weight:600">${escapeHtml(f.ident)} <span style="color:var(--dl-muted);font-weight:400">${escapeHtml(f.route)}</span></span><span style="color:#ef4444;font-weight:700">+${f.delay}m</span></div>`;
+      html += `<div class="irops-worst-row"><span style="color:var(--dl-accent);font-weight:600">${escapeHtml(f.ident)} <span style="color:var(--dl-muted);font-weight:400">${escapeHtml(f.route)}</span></span><span style="color:#ef4444;font-weight:700">+${f.delay}m</span></div>`;
     });
     html += '</div>';
   }
@@ -4384,27 +4380,27 @@ function updateIrrops() {
   content.innerHTML = html;
 }
 
-function autoLoadIrrops() {
-  // Try server-side precomputed IRROPS first
-  fetchIrropsFromAPI();
+function autoLoadIrops() {
+  // Try server-side precomputed IROPS first
+  fetchIropsFromAPI();
 }
 
-async function fetchIrropsFromAPI() {
-  const content = document.getElementById('irrops-content');
-  content.innerHTML = '<div class="irrops-empty" style="color:var(--dl-muted);font-size:10px">Loading IRROPS data…</div>';
+async function fetchIropsFromAPI() {
+  const content = document.getElementById('irops-content');
+  content.innerHTML = '<div class="irops-empty" style="color:var(--dl-muted);font-size:10px">Loading IROPS data…</div>';
   try {
-    const resp = await fetch('/api/irrops');
+    const resp = await fetch('/api/irops');
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     const data = await resp.json();
-    renderIrropsFromAPI(data);
+    renderIropsFromAPI(data);
   } catch (e) {
-    console.error('IRROPS API failed, falling back to manual:', e);
-    content.innerHTML = '<div class="irrops-empty">Load schedule data from the Schedule tab to see IRROPS metrics<br><button class="retry-btn" style="margin-top:8px" data-action="irrops-load">📅 Load Schedule Data</button></div>';
+    console.error('IROPS API failed, falling back to manual:', e);
+    content.innerHTML = '<div class="irops-empty">Load schedule data from the Schedule tab to see IROPS metrics<br><button class="retry-btn" style="margin-top:8px" data-action="irops-load">📅 Load Schedule Data</button></div>';
   }
 }
 
-function renderIrropsFromAPI(data) {
-  // Hydrate schedule cache from IRROPS hub flights (avoids 7 separate schedule calls)
+function renderIropsFromAPI(data) {
+  // Hydrate schedule cache from IROPS hub flights (avoids 7 separate schedule calls)
   if (data.hubFlights) {
     const hubs = ['ATL','LGA','JFK','BOS','DTW','MSP','SLC','LAX','SEA'];
     hubs.forEach(hub => {
@@ -4423,7 +4419,7 @@ function renderIrropsFromAPI(data) {
     });
   }
 
-  // Use hub metrics from IRROPS API to populate hub health bar immediately
+  // Use hub metrics from IROPS API to populate hub health bar immediately
   if (data.hubMetrics) {
     const bar = document.getElementById('hub-health-bar');
     const hubs = ['ATL','LGA','JFK','BOS','DTW','MSP','SLC','LAX','SEA'];
@@ -4471,25 +4467,25 @@ function renderIrropsFromAPI(data) {
     bar.innerHTML = html;
   }
 
-  const content = document.getElementById('irrops-content');
+  const content = document.getElementById('irops-content');
   const score = data.score;
   const scoreCls = score < 5 ? 'low' : score < 15 ? 'med' : 'high';
-  const scoreLabel = score < 5 ? 'Normal Ops' : score < 15 ? 'Minor Disruptions' : 'Significant IRROPS';
+  const scoreLabel = score < 5 ? 'Normal Ops' : score < 15 ? 'Minor Disruptions' : 'Significant IROPS';
 
-  let html = `<div style="margin-bottom:10px"><span class="irrops-score ${scoreCls}">${score}</span> <span style="font-size:10px;color:var(--dl-muted)">${scoreLabel} · Disruption Score</span></div>`;
-  html += '<div class="irrops-metrics">';
-  html += `<div class="irrops-card"><div class="iv" style="color:#ef4444">${data.cancellations || '—'}</div><div class="il">Cancellations<span style="font-size:7px;display:block;color:var(--dl-muted)" title="FR24 schedule data does not reliably include cancelled flights">Limited data</span></div></div>`;
-  html += `<div class="irrops-card"><div class="iv" style="color:#f59e0b">${data.delayed30}</div><div class="il">Delayed &gt;30m</div></div>`;
-  html += `<div class="irrops-card"><div class="iv" style="color:#ef4444">${data.delayed60}</div><div class="il">Delayed &gt;60m</div></div>`;
-  html += `<div class="irrops-card"><div class="iv" style="color:#c026d3">${data.diversions}</div><div class="il">Diversions</div></div>`;
-  html += `<div class="irrops-card"><div class="iv" style="color:var(--dl-blue)">${data.totalFlights}</div><div class="il">Total Flights</div></div>`;
+  let html = `<div style="margin-bottom:10px"><span class="irops-score ${scoreCls}">${score}</span> <span style="font-size:10px;color:var(--dl-muted)">${scoreLabel} · Disruption Score</span></div>`;
+  html += '<div class="irops-metrics">';
+  html += `<div class="irops-card"><div class="iv" style="color:#ef4444">${data.cancellations || '—'}</div><div class="il">Cancellations<span style="font-size:7px;display:block;color:var(--dl-muted)" title="FR24 schedule data does not reliably include cancelled flights">Limited data</span></div></div>`;
+  html += `<div class="irops-card"><div class="iv" style="color:#f59e0b">${data.delayed30}</div><div class="il">Delayed &gt;30m</div></div>`;
+  html += `<div class="irops-card"><div class="iv" style="color:#ef4444">${data.delayed60}</div><div class="il">Delayed &gt;60m</div></div>`;
+  html += `<div class="irops-card"><div class="iv" style="color:#c026d3">${data.diversions}</div><div class="il">Diversions</div></div>`;
+  html += `<div class="irops-card"><div class="iv" style="color:var(--dl-blue)">${data.totalFlights}</div><div class="il">Total Flights</div></div>`;
   html += '</div>';
 
   // Worst delays
   if (data.worstDelays && data.worstDelays.length) {
-    html += '<div class="irrops-worst"><h4>Most Disrupted Flights</h4>';
+    html += '<div class="irops-worst"><h4>Most Disrupted Flights</h4>';
     data.worstDelays.forEach(f => {
-      html += `<div class="irrops-worst-row"><span style="color:var(--dl-accent);font-weight:600">${escapeHtml(f.ident)} <span style="color:var(--dl-muted);font-weight:400">${escapeHtml(f.route)}</span></span><span style="color:#ef4444;font-weight:700">+${f.delay}m</span></div>`;
+      html += `<div class="irops-worst-row"><span style="color:var(--dl-accent);font-weight:600">${escapeHtml(f.ident)} <span style="color:var(--dl-muted);font-weight:400">${escapeHtml(f.route)}</span></span><span style="color:#ef4444;font-weight:700">+${f.delay}m</span></div>`;
     });
     html += '</div>';
   }
@@ -4743,8 +4739,8 @@ document.addEventListener('click', function(e) {
     case 'refresh-fleet-data':
       refreshFleetData();
       break;
-    case 'irrops-load':
-      autoLoadIrrops();
+    case 'irops-load':
+      autoLoadIrops();
       break;
     case 'map-error-retry': {
       const overlay = actionEl.closest('#map-error-overlay');
@@ -4907,9 +4903,9 @@ async function initApp() {
   // The hash IIFE only set the visual state; this triggers the actual data loads.
   const activeTab = document.querySelector('.tab-btn.active')?.dataset.tab;
   if (activeTab && activeTab !== 'tab-live') switchToTab(activeTab, false);
-  // Defer IRROPS + schedule preload to idle — they're only needed for Weather/Schedule tabs
+  // Defer IROPS + schedule preload to idle — they're only needed for Weather/Schedule tabs
   // Background preload: fetch top 3 hubs on idle so Schedule tab is fast without hammering mobile
-  const idlePreload = () => { preloadScheduleData(); fetchIrropsFromAPI(); };
+  const idlePreload = () => { preloadScheduleData(); fetchIropsFromAPI(); };
   if ('requestIdleCallback' in window) requestIdleCallback(idlePreload); else setTimeout(idlePreload, 5000);
 }
 
