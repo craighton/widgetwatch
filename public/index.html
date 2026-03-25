@@ -2330,6 +2330,8 @@ function showFlightPopup(f, marker) {
         h += '</div>';
         el.className = '';
         el.innerHTML = h;
+        const popup = marker.getPopup();
+        if (popup) popup.update();
       })
       .catch(() => {
         const el = document.getElementById(timesId);
