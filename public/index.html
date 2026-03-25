@@ -2330,8 +2330,14 @@ function showFlightPopup(f, marker) {
         h += '</div>';
         el.className = '';
         el.innerHTML = h;
+        // Reposition popup without resetting content (popup.update() would re-render
+        // the original HTML string via _updateContent, wiping out the injected times)
         const popup = marker.getPopup();
-        if (popup) popup.update();
+        if (popup && popup._map) {
+          if (popup._updateLayout) popup._updateLayout();
+          if (popup._updatePosition) popup._updatePosition();
+          if (popup._adjustPan) popup._adjustPan();
+        }
       })
       .catch(() => {
         const el = document.getElementById(timesId);
