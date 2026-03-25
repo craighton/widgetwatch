@@ -4277,8 +4277,10 @@ function updateHubHealth() {
     }
   }
 
+  const hhNavLinks = '<span style="margin-left:auto;display:flex;align-items:center;gap:6px"><a href="#" data-action="show-disclaimer" data-prevent-default="1" style="color:var(--dl-muted);text-decoration:none">About</a><span style="color:var(--dl-border)">·</span><a href="/fleet" style="color:var(--dl-muted);text-decoration:none">Fleet Database</a><span style="color:var(--dl-border)">·</span><a href="https://github.com/craighton/widgetwatch/issues" target="_blank" rel="noopener noreferrer" style="color:var(--dl-muted);text-decoration:none">Support / Feedback</a></span>';
+
   if (!hasData) {
-    bar.innerHTML = '<span class="hh-label">Hub Health</span><span class="hh-explainer">ON-TIME %</span><span class="hh-info">?<span class="hh-tooltip">% of operated flights departing within 30 min of schedule. 🟢 &gt;70% · 🟡 50–70% · 🔴 &lt;50%</span></span><span style="color:var(--dl-muted)">Load schedule data for hub health</span>';
+    bar.innerHTML = '<span class="hh-label">Hub Health</span><span class="hh-explainer">ON-TIME %</span><span class="hh-info">?<span class="hh-tooltip">% of operated flights departing within 30 min of schedule. 🟢 &gt;70% · 🟡 50–70% · 🔴 &lt;50%</span></span><span style="color:var(--dl-muted)">Load schedule data for hub health</span>' + hhNavLinks;
     return;
   }
 
@@ -4302,7 +4304,7 @@ function updateHubHealth() {
     const avgColor = avg > 70 ? '#22c55e' : avg >= 50 ? '#f59e0b' : '#ef4444';
     html += `<span class="hh-sep">│</span><span class="hh-avg" style="color:${avgColor};font-size:9px;font-weight:700">${avgLabel}</span>`;
   }
-  bar.innerHTML = html;
+  bar.innerHTML = html + hhNavLinks;
 }
 
 // ═══ IROPS DASHBOARD ═══
@@ -4436,6 +4438,7 @@ function renderIropsFromAPI(data) {
   if (data.hubMetrics) {
     const bar = document.getElementById('hub-health-bar');
     const hubs = ['ATL','LGA','JFK','BOS','DTW','MSP','SLC','LAX','SEA'];
+    const hhNavLinks = '<span style="margin-left:auto;display:flex;align-items:center;gap:6px"><a href="#" data-action="show-disclaimer" data-prevent-default="1" style="color:var(--dl-muted);text-decoration:none">About</a><span style="color:var(--dl-border)">·</span><a href="/fleet" style="color:var(--dl-muted);text-decoration:none">Fleet Database</a><span style="color:var(--dl-border)">·</span><a href="https://github.com/craighton/widgetwatch/issues" target="_blank" rel="noopener noreferrer" style="color:var(--dl-muted);text-decoration:none">Support / Feedback</a></span>';
     let html = '<span class="hh-label">Hub Health</span><span class="hh-explainer">ON-TIME %</span><span class="hh-info">?<span class="hh-tooltip">% of operated flights departing within 30 min of schedule. 🟢 &gt;70% · 🟡 50–70% · 🔴 &lt;50%</span></span>';
     hubs.forEach((hub, i) => {
       const m = data.hubMetrics[hub];
@@ -4477,7 +4480,7 @@ function renderIropsFromAPI(data) {
       const avgColor = avg > 70 ? '#22c55e' : avg >= 50 ? '#f59e0b' : '#ef4444';
       html += `<span class="hh-sep">│</span><span class="hh-avg" style="color:${avgColor};font-size:9px;font-weight:700">${avgLabel}</span>`;
     }
-    bar.innerHTML = html;
+    bar.innerHTML = html + hhNavLinks;
   }
 
   const content = document.getElementById('irops-content');
