@@ -4,6 +4,26 @@ All notable changes to Widget Watch are documented here.
 
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versioned per [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-03-26
+
+### Added
+- Hub health navigation links in hub health panel
+
+### Changed
+- Flight popup restructured: phase badge now appears inline right of the callsign; Watch and Share buttons moved to a dedicated row below the external links
+- Busiest hub badge unbolded
+
+### Fixed
+- Hub labels on the map no longer render in incorrect positions on first load (deferred `drawHubs()` to `map.whenReady()` so permanent tooltips are positioned after Leaflet completes its initial layout)
+- Terminal and gate values from FlightAware API now escaped before injection into popup HTML (XSS fix)
+
+### Removed
+- Unused `planePos` variable in route drawing
+- Unused `bmacInteractions` counter
+- Dead `splitAtAntimeridian` legacy wrapper function
+
+---
+
 ## [1.2.0] - 2026-03-25
 
 ### Added
