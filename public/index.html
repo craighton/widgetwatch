@@ -1869,8 +1869,9 @@ function initMap() {
     }
   });
 
-  // Hub markers
-  drawHubs();
+  // Hub markers — deferred until Leaflet finishes initial layout so permanent
+  // tooltips calculate their positions against settled map dimensions
+  map.whenReady(() => drawHubs());
   refreshFlights();
   refreshTimer = setInterval(() => {
     countdown--;
@@ -2166,19 +2167,16 @@ function showFlightPopup(f, marker) {
   const popupWatched = isFlightWatched(popupFlt);
 
   let html = `<div class="popup-card">`;
-  html += `<div class="popup-header"><div>`;
+  html += `<div class="popup-header">`;
   html += `<div style="display:flex;align-items:center;gap:6px">`;
   html += `<div class="popup-callsign">${escapeHtml(displayFlight)}</div>`;
-  html += `<button class="watch-btn${popupWatched ? ' watching' : ''}" data-action="toggle-watch-flight" data-flight="${escapeHtml(popupFlt)}" data-route="${escapeHtml(popupRoute)}" data-status="airborne" aria-label="${popupWatched ? 'Unwatch flight' : 'Watch flight'}">${popupWatched ? '👁️ Watching' : '👁 Watch'}</button>`;
-  html += `<button class="share-btn" data-action="share-flight" data-flight="${escapeHtml(popupFlt)}" aria-label="Share flight link" title="Copy shareable link">📤 Share</button>`;
+  html += `<span class="popup-phase ${phaseInfo.cls}">${phaseInfo.icon} ${phaseInfo.phase}</span>`;
   html += `</div>`;
+  if (squawk) html += `<div style="margin-top:3px"><span class="${squawk.cls}">${squawk.text}</span></div>`;
   if (hasCityNames) html += `<div class="popup-route" style="font-size:14px;font-weight:600">${escapeHtml(origCity)} → ${escapeHtml(destCity)}</div>`;
   html += `<div class="popup-route" style="${hasCityNames ? 'font-size:11px;color:var(--dl-muted);margin-top:1px' : ''}">${escapeHtml(routeStr)}</div>`;
   if (!hasRealRoute && (originObj || destObj)) html += `<div class="popup-route-est">estimated route</div>`;
-  html += `</div><div>`;
-  html += `<span class="popup-phase ${phaseInfo.cls}">${phaseInfo.icon} ${phaseInfo.phase}</span>`;
-  if (squawk) html += `<br><span class="${squawk.cls}">${squawk.text}</span>`;
-  html += `</div></div>`;
+  html += `</div>`;
 
   html += `<div class="popup-grid">`;
   html += `<div class="popup-field"><span class="popup-field-label">Altitude</span><span class="popup-field-value">${altFt ? altFt.toLocaleString() + ' ft' : 'N/A'}</span>`;
@@ -2221,6 +2219,10 @@ function showFlightPopup(f, marker) {
   const regLink = aircraft?.r || f.reg;
   if (regLink) html += `<a href="https://www.planespotters.net/search?q=${encodeURIComponent(regLink)}" target="_blank" rel="noopener noreferrer">Planespotters ↗</a>`;
   html += `<a href="https://globe.adsbexchange.com/?icao=${encodeURIComponent(f.icao24)}" target="_blank" rel="noopener noreferrer">ADS-B ↗</a>`;
+  html += `</div>`;
+  html += `<div class="popup-links">`;
+  html += `<button class="watch-btn${popupWatched ? ' watching' : ''}" data-action="toggle-watch-flight" data-flight="${escapeHtml(popupFlt)}" data-route="${escapeHtml(popupRoute)}" data-status="airborne" aria-label="${popupWatched ? 'Unwatch flight' : 'Watch flight'}">${popupWatched ? '👁️ Watching' : '👁 Watch'}</button>`;
+  html += `<button class="share-btn" data-action="share-flight" data-flight="${escapeHtml(popupFlt)}" aria-label="Share flight link" title="Copy shareable link">📤 Share</button>`;
   html += `</div></div>`;
 
   if (marker.getPopup()) marker.unbindPopup();
@@ -2302,7 +2304,7 @@ function showFlightPopup(f, marker) {
         let h = '<div class="popup-times">';
 
         // Departure column
-        h += '<div class="popup-field"><span class="popup-field-label">Departure' + (orig.terminal ? ' · T' + orig.terminal : '') + (orig.gate ? ' G' + orig.gate : '') + '</span><span class="popup-field-value">';
+        h += '<div class="popup-field"><span class="popup-field-label">Departure' + (orig.terminal ? ' · T' + escapeHtml(String(orig.terminal)) : '') + (orig.gate ? ' G' + escapeHtml(String(orig.gate)) : '') + '</span><span class="popup-field-value">';
         if (depActual) {
           h += (fmtTimeInTz(depActual, orig.tz) || 'N/A') + deltaBadge(deltaMin(depSched, depActual));
         } else if (depEst) {
@@ -2318,7 +2320,7 @@ function showFlightPopup(f, marker) {
         h += '</div>';
 
         // Arrival column
-        h += '<div class="popup-field"><span class="popup-field-label">Arrival' + (dest.terminal ? ' · T' + dest.terminal : '') + (dest.gate ? ' G' + dest.gate : '') + '</span><span class="popup-field-value">';
+        h += '<div class="popup-field"><span class="popup-field-label">Arrival' + (dest.terminal ? ' · T' + escapeHtml(String(dest.terminal)) : '') + (dest.gate ? ' G' + escapeHtml(String(dest.gate)) : '') + '</span><span class="popup-field-value">';
         if (arrActual) {
           h += (fmtTimeWithTz(arrActual, dest.tz) || 'N/A') + deltaBadge(deltaMin(arrSched, arrActual));
         } else if (arrEst) {
@@ -2362,7 +2364,6 @@ function showFlightPopup(f, marker) {
     }
     if (oApt && dApt && oApt.lat && dApt.lat) {
       const layers = [];
-      const planePos = [f.lat, f.lon];
       // Traveled segment: origin → plane (solid) — continuous lon for IDL crossing
       const traveledPts = normalizeLonContinuity(greatCirclePoints(oApt.lat, oApt.lon, f.lat, f.lon, 60));
       layers.push(L.polyline(traveledPts, { color: '#003A70', weight: 2.5, opacity: 0.8 }));
@@ -2419,10 +2420,6 @@ function normalizeLonContinuity(pts) {
   return out;
 }
 
-// Legacy wrapper — no longer splits; just returns a single continuous segment
-function splitAtAntimeridian(pts) {
-  return [normalizeLonContinuity(pts)];
-}
 
 // ═══ STATS ═══
 function updateStats() {
@@ -4973,7 +4970,6 @@ function hideDisclaimer() {
   // ═══ BMAC ENGAGEMENT-BASED PROMPTS ═══
   var bmacDismissedAt = parseInt(localStorage.getItem('bb-bmac-dismissed') || '0');
   var bmacDismissed = bmacDismissedAt && (Date.now() - bmacDismissedAt < 7 * 24 * 60 * 60 * 1000); // resets after 7 days
-  var bmacInteractions = 0;
   var bmacShownThisSession = false;
 
   function showBmacToast(message, duration) {
@@ -4986,21 +4982,6 @@ function hideDisclaimer() {
     document.body.appendChild(t);
     setTimeout(function(){ if(t.parentElement) { t.style.opacity='0'; t.style.transition='opacity .3s'; setTimeout(function(){ if(t.parentElement) t.remove() }, 300); } }, duration || 12000);
   }
-
-  // Trigger 1: After 5 minutes of active use
-  setTimeout(function() {
-    if (!bmacShownThisSession && !bmacDismissed) {
-      showBmacToast('Built by a Delta flyer, not a corporation.');
-    }
-  }, 5 * 60 * 1000);
-
-  // Trigger 2: After 10+ meaningful interactions (tab switches, searches, flight clicks)
-  document.addEventListener('click', function() {
-    bmacInteractions++;
-    if (bmacInteractions === 10 && !bmacShownThisSession && !bmacDismissed) {
-      showBmacToast('You\'re really digging in! 🛫 This dashboard is free, ad-free, and built with love.');
-    }
-  });
 
   // Trigger 3: Flight watch landing payoff (called from checkWatchedFlightChanges)
   window.showBmacLandingToast = function(flight) {
