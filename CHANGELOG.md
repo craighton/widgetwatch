@@ -6,9 +6,15 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versio
 
 ## [1.3.1] - 2026-03-27
 
+### Added
+- Version badge (`v1.3.1`) in the footer; clicking it opens an in-page changelog modal
+- `/api/changelog` endpoint serves `CHANGELOG.md` as plain text for the modal
+- Changelog modal renders markdown (headers, lists, dividers) using DOM methods with no `innerHTML` for fetched content
+
 ### Changed
 - Flight popup header restructured: callsign and phase badge on their own line, followed by airport city names, then airport codes as separate lines
 - `popup-header` changed to `flex-direction: column` so route lines stack vertically
+- `popup-route` (city names) uses consistent `14px / font-weight:600` styling; airport codes use new `popup-route-code` class (11px, muted)
 
 ### Fixed
 - Departure/arrival times now appear more reliably in flight popups:
