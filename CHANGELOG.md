@@ -3,15 +3,13 @@
 ## [1.4.1] - 2026-06-18
 
 ### Added
-- International flight detection as a distinct concept from long-haul — a flight is flagged international when its origin and destination are in different countries
-  - New `International` map control (default on); international flights render in emerald (`#34d399`), separate from long-haul gold and domestic blue. When a flight is both, international takes color precedence
-  - `International` badge in the flight popup for cross-border routes
+- The `Long Haul` map filter now also flags international flights — a flight is highlighted when it travels >2500nm **or** crosses an international border (origin and destination in different countries)
   - ISO country codes added to non-US airports in the `AIRPORTS` coords table; Guam (`GUM`) is treated as `US` (territory) so US–Guam flights stay domestic
   - `isInternationalFlight()` / `airportCountry()` helpers; airports missing from the coords table return no classification (no false positives)
-- Added Athens (`ATH`), Nice (`NCE`), Naples (`NAP`), Catania (`CTA`), Venice (`VCE`), and Dakar (`DSS`) to the airport coordinate and city-name tables — previously absent, so they now render on the map and classify as international
+  - `International` badge in the flight popup for cross-border routes
+- Added Athens (`ATH`), Nice (`NCE`), Naples (`NAP`), Catania (`CTA`), Venice (`VCE`), and Dakar (`DSS`) to the airport coordinate and city-name tables — previously absent, so they now render on the map and are caught by the Long Haul / international filter
 
 ### Changed
-- NEXRAD weather radar overlay on the live map increased from `0.5` to `0.75` opacity
 - Footer version badge updated to `v1.4.1`
 
 ---

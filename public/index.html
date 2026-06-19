@@ -841,7 +841,6 @@ table,thead th,tbody td,.stat-val,.metric-val,.big-number,.hub-code,.hub-card-co
         <button class="ctrl-btn" id="mobile-ctrl-toggle" style="display:none" aria-label="Toggle map layers"><i class="fa-solid fa-bars"></i></button>
         <button class="ctrl-btn active" data-action="toggle-hubs" id="btn-hubs"><i class="fa-solid fa-building"></i> Hubs</button>
         <button class="ctrl-btn active" data-action="toggle-longhaul" id="btn-longhaul"><i class="fa-solid fa-globe"></i> Long Haul</button>
-        <button class="ctrl-btn active" data-action="toggle-intl" id="btn-intl"><i class="fa-solid fa-earth-americas"></i> International</button>
         <button class="ctrl-btn" data-action="toggle-weather" id="btn-wx"><i class="fa-solid fa-cloud-rain"></i> Weather</button>
         <!--button class="ctrl-btn" data-action="view-pacific" id="btn-pacific">Pacific</button-->
         <button class="ctrl-btn" data-action="refresh-flights" id="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i> Refresh</button>
@@ -1503,7 +1502,7 @@ const IATA_CITIES = {
 
 // ═══ GLOBALS ═══
 let map, flightMarkers = {}, routeLine = null, routeGroup = null, hubMarkers = [], wxLayer = null;
-let allFlights = [], showHubs = true, showLonghaul = true, showIntl = true, showWeather = false;
+let allFlights = [], showHubs = true, showLonghaul = true, showWeather = false;
 let activeHubFilter = null, activePhaseFilter = null;
 let refreshTimer = null, countdown = 30;
 let deepLinkHandled = false;
@@ -1909,13 +1908,12 @@ function drawHubs() {
 
 function toggleHubs() { showHubs = !showHubs; drawHubs(); document.getElementById('btn-hubs').classList.toggle('active'); }
 function toggleLonghaul() { showLonghaul = !showLonghaul; document.getElementById('btn-longhaul').classList.toggle('active'); updateMarkers(); }
-function toggleIntl() { showIntl = !showIntl; document.getElementById('btn-intl').classList.toggle('active'); updateMarkers(); }
 function toggleWeather() {
   showWeather = !showWeather;
   document.getElementById('btn-wx').classList.toggle('active');
   if (showWeather && !wxLayer) {
     wxLayer = L.tileLayer('https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png', {
-      opacity: 0.75, maxZoom: 18
+      opacity: 0.5, maxZoom: 18
     }).addTo(map);
   } else if (!showWeather && wxLayer) {
     map.removeLayer(wxLayer); wxLayer = null;
@@ -2031,6 +2029,8 @@ function haversineNm(lat1, lon1, lat2, lon2) {
 }
 
 function isLonghaulFlight(f) {
+  // "Long Haul" covers both long-distance and international (cross-border) flights.
+  if (isInternationalFlight(f)) return true;
   // Use airport coords to calculate distance; >2500nm = longhaul
   const orig = AIRPORT_COORDS[f.origin];
   const dest = AIRPORT_COORDS[f.dest];
@@ -2056,15 +2056,14 @@ function isInternationalFlight(f) {
   return false;
 }
 
-// Icon cache: key = "hdg_rounded|isIntl|isLonghaul|phase" → L.divIcon
+// Icon cache: key = "hdg_rounded|isLonghaul|phase" → L.divIcon
 const _iconCache = {};
-function createPlaneIcon(hdg, isLonghaul, isIntl, phase) {
-  // Round heading to nearest 5° to maximize cache hits (72 angles × color combos)
+function createPlaneIcon(hdg, isLonghaul, phase) {
+  // Round heading to nearest 5° to maximize cache hits
   const hdgRounded = Math.round((hdg || 0) / 5) * 5;
-  const cacheKey = `${hdgRounded}|${isIntl?1:0}|${isLonghaul?1:0}|${phase}`;
+  const cacheKey = `${hdgRounded}|${isLonghaul?1:0}|${phase}`;
   if (_iconCache[cacheKey]) return _iconCache[cacheKey];
-  // International (emerald) takes precedence over long-haul (gold); they're separate concepts.
-  const color = isIntl ? '#34d399' : isLonghaul ? '#fbbf24' : (phase === 'Ground' ? '#6b7280' : '#60a5fa');
+  const color = isLonghaul ? '#fbbf24' : (phase === 'Ground' ? '#6b7280' : '#60a5fa');
   const size = 11;
   // SVG plane pointing north (0°) — classic top-down aircraft silhouette, cross-platform consistent
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 256 256" fill="${color}" style="filter:drop-shadow(0 0 2px ${color})"><path d="M131.53,25.31c0-13.98-5.56-25.31-12.41-25.31s-12.41,11.33-12.41,25.31h0v60.06S0,159.82,0,159.82v14.89s106.71-29.78,106.71-29.78v59.56s-37.23,24.82-37.23,24.82v9.93s44.67-9.93,44.67-9.93h9.93s44.67,9.93,44.67,9.93v-9.93s-37.23-24.82-37.23-24.82v-59.56s106.71,29.78,106.71,29.78v-14.89s-106.71-74.45-106.71-74.45V25.31Z"/></svg>`;  const icon = L.divIcon({
@@ -2120,9 +2119,8 @@ function updateMarkers() {
 
   filtered.forEach(f => {
     const isLonghaul = showLonghaul && isLonghaulFlight(f);
-    const isIntl = showIntl && isInternationalFlight(f);
     const phaseInfo = getPhase(f.alt, f.vr, f.spd);
-    const icon = createPlaneIcon(f.hdg, isLonghaul, isIntl, phaseInfo.phase);
+    const icon = createPlaneIcon(f.hdg, isLonghaul, phaseInfo.phase);
 
     // Normalize longitude to nearest world copy relative to map center
     // so IDL-crossing flights (e.g. SFO→BNE) are always visible
@@ -4777,9 +4775,6 @@ document.addEventListener('click', function(e) {
       break;
     case 'toggle-longhaul':
       toggleLonghaul();
-      break;
-    case 'toggle-intl':
-      toggleIntl();
       break;
     case 'toggle-weather':
       toggleWeather();
