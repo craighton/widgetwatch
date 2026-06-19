@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.4.1] - 2026-06-18
+
+### Added
+- The `Long Haul` map filter now also flags international flights — a flight is highlighted when it travels >2500nm **or** crosses an international border (origin and destination in different countries)
+  - ISO country codes added to non-US airports in the `AIRPORTS` coords table; Guam (`GUM`) is treated as `US` (territory) so US–Guam flights stay domestic
+  - `isInternationalFlight()` / `airportCountry()` helpers; airports missing from the coords table return no classification (no false positives)
+  - `International` badge in the flight popup for cross-border routes
+- Added Athens (`ATH`), Nice (`NCE`), Naples (`NAP`), Catania (`CTA`), Venice (`VCE`), and Dakar (`DSS`) to the airport coordinate and city-name tables — previously absent, so they now render on the map and are caught by the Long Haul / international filter
+
+### Changed
+- Footer version badge updated to `v1.4.1`
+
+---
+
+## [1.4.0] - 2026-04-03
+
+### Changed
+- Replaced all Unicode/emoji icons throughout the UI with Font Awesome 6 (`fa-solid` / `fa-regular` / `fa-brands`) icons
+  - Tab bar, bottom nav, onboarding modal, control buttons, section headings, table sort indicators, status badges, modal close buttons, share/watch/retry buttons, source items, hub health bar, flight phase indicators, squawk decoder, and all JS-generated HTML
+  - Sort indicator logic updated from `textContent` manipulation to `innerHTML` with `data-label` attributes for stable FA icon injection
+  - `textContent` assignments that included emoji converted to `innerHTML` (refresh button, sidebar filter toggles, schedule/radar title updates)
+- Font Awesome 6.7.2 stylesheet added to `index.html` and `fleet.html` via cdnjs CDN
+
+---
+
 ## [1.3.1] - 2026-03-27
 
 ### Added
