@@ -841,6 +841,7 @@ table,thead th,tbody td,.stat-val,.metric-val,.big-number,.hub-code,.hub-card-co
         <button class="ctrl-btn" id="mobile-ctrl-toggle" style="display:none" aria-label="Toggle map layers"><i class="fa-solid fa-bars"></i></button>
         <button class="ctrl-btn active" data-action="toggle-hubs" id="btn-hubs"><i class="fa-solid fa-building"></i> Hubs</button>
         <button class="ctrl-btn active" data-action="toggle-longhaul" id="btn-longhaul"><i class="fa-solid fa-globe"></i> Long Haul</button>
+        <button class="ctrl-btn active" data-action="toggle-intl" id="btn-intl"><i class="fa-solid fa-earth-americas"></i> International</button>
         <button class="ctrl-btn" data-action="toggle-weather" id="btn-wx"><i class="fa-solid fa-cloud-rain"></i> Weather</button>
         <!--button class="ctrl-btn" data-action="view-pacific" id="btn-pacific">Pacific</button-->
         <button class="ctrl-btn" data-action="refresh-flights" id="btn-refresh"><i class="fa-solid fa-arrows-rotate"></i> Refresh</button>
@@ -864,7 +865,7 @@ table,thead th,tbody td,.stat-val,.metric-val,.big-number,.hub-code,.hub-card-co
     <span class="stat-sep">│</span>
     <div class="stat-item"><span class="stat-val" id="st-avgspd">--</span><span class="stat-label">Avg Spd</span></div>
     <span class="stat-sep">│</span>
-    <div class="footer-data-sources" style="margin-left:auto;font-size:9px;color:var(--dl-muted);white-space:nowrap">Data: FR24 · AWC · FAA · Original Project by <a href="https://github.com/notjbg" target="_blank" rel="noopener noreferrer" style="color:var(--dl-accent);text-decoration:none">Jonah Berg</a> · Modified by <a href="https://github.com/craighton" target="_blank" rel="noopener noreferrer" style="color:var(--dl-accent);text-decoration:none">Craighton Miller</a> · <button data-action="show-changelog" style="background:none;border:none;padding:0;font-size:9px;color:var(--dl-accent);font-family:var(--font-mono);cursor:pointer;text-decoration:underline dotted">v1.3.1</button></div>
+    <div class="footer-data-sources" style="margin-left:auto;font-size:9px;color:var(--dl-muted);white-space:nowrap">Data: FR24 · AWC · FAA · Original Project by <a href="https://github.com/notjbg" target="_blank" rel="noopener noreferrer" style="color:var(--dl-accent);text-decoration:none">Jonah Berg</a> · Modified by <a href="https://github.com/craighton" target="_blank" rel="noopener noreferrer" style="color:var(--dl-accent);text-decoration:none">Craighton Miller</a> · <button data-action="show-changelog" style="background:none;border:none;padding:0;font-size:9px;color:var(--dl-accent);font-family:var(--font-mono);cursor:pointer;text-decoration:underline dotted">v1.4.1</button></div>
   </div>
 </div>
 
@@ -1333,35 +1334,38 @@ const AIRPORTS = [
   {iata:"SBN",lat:41.7087,lon:-86.3173},{iata:"GRR",lat:42.8808,lon:-85.5228},
   {iata:"MSN",lat:43.1399,lon:-89.3375},{iata:"XNA",lat:36.2819,lon:-94.3068},
   {iata:"ICT",lat:37.6499,lon:-97.4331},{iata:"LIT",lat:34.7294,lon:-92.2243},
-  // International
-  {iata:"LHR",lat:51.4700,lon:-0.4543},{iata:"FRA",lat:50.0379,lon:8.5622},
-  {iata:"CDG",lat:49.0097,lon:2.5479},{iata:"AMS",lat:52.3105,lon:4.7683},
-  {iata:"MUC",lat:48.3538,lon:11.7861},{iata:"ZRH",lat:47.4647,lon:8.5492},
-  {iata:"FCO",lat:41.8003,lon:12.2389},{iata:"MAD",lat:40.4983,lon:-3.5676},
-  {iata:"BCN",lat:41.2974,lon:2.0833},{iata:"LIS",lat:38.7813,lon:-9.1359},
-  {iata:"DUB",lat:53.4213,lon:-6.2701},{iata:"EDI",lat:55.9508,lon:-3.3615},
-  {iata:"GUM",lat:13.4834,lon:144.7960},{iata:"NRT",lat:35.7720,lon:140.3929},{iata:"HND",lat:35.5494,lon:139.7798},
-  {iata:"ICN",lat:37.4602,lon:126.4407},{iata:"PEK",lat:40.0799,lon:116.6031},
-  {iata:"PVG",lat:31.1443,lon:121.8083},{iata:"HKG",lat:22.3080,lon:113.9185},
-  {iata:"SIN",lat:1.3644,lon:103.9915},{iata:"BKK",lat:13.6900,lon:100.7501},
-  {iata:"DEL",lat:28.5562,lon:77.1000},{iata:"BOM",lat:19.0896,lon:72.8656},
-  {iata:"SYD",lat:-33.9399,lon:151.1753},{iata:"MEL",lat:-37.6690,lon:144.8410},
-  {iata:"GRU",lat:-23.4356,lon:-46.4731},{iata:"EZE",lat:-34.8222,lon:-58.5358},
-  {iata:"SCL",lat:-33.3930,lon:-70.7858},{iata:"BOG",lat:4.7016,lon:-74.1469},
-  {iata:"MEX",lat:19.4363,lon:-99.0721},{iata:"CUN",lat:21.0365,lon:-86.8771},
-  {iata:"GDL",lat:20.5218,lon:-103.3113},{iata:"SJD",lat:23.1518,lon:-109.7215},
-  {iata:"PVR",lat:20.6801,lon:-105.2544},{iata:"LIM",lat:-12.0219,lon:-77.1143},
-  {iata:"PTY",lat:9.0714,lon:-79.3835},{iata:"SJO",lat:9.9939,lon:-84.2088},
-  {iata:"YYZ",lat:43.6777,lon:-79.6248},{iata:"YVR",lat:49.1967,lon:-123.1815},
-  {iata:"YUL",lat:45.4706,lon:-73.7408},{iata:"YYC",lat:51.1315,lon:-114.0106},
-  {iata:"TLV",lat:32.0114,lon:34.8867},{iata:"DOH",lat:25.2731,lon:51.6082},
-  {iata:"DXB",lat:25.2532,lon:55.3657},{iata:"ADD",lat:8.9779,lon:38.7993},
-  {iata:"ACC",lat:5.6052,lon:-0.1668},{iata:"CPT",lat:-33.9649,lon:18.6017},
-  {iata:"JNB",lat:-26.1392,lon:28.2460},{iata:"CAI",lat:30.1219,lon:31.4056},
-  {iata:"IST",lat:41.2753,lon:28.7519},{iata:"MNL",lat:14.5086,lon:121.0198},
-  {iata:"TPE",lat:25.0777,lon:121.2327},{iata:"BRU",lat:50.9014,lon:4.4844},
-  {iata:"OSL",lat:60.1976,lon:11.1004},{iata:"CPH",lat:55.6180,lon:12.6560},
-  {iata:"ARN",lat:59.6519,lon:17.9186},{iata:"HEL",lat:60.3172,lon:24.9633}
+  // International — country used for international-flight detection (GUM is a US territory → US)
+  {iata:"LHR",lat:51.4700,lon:-0.4543,country:"GB"},{iata:"FRA",lat:50.0379,lon:8.5622,country:"DE"},
+  {iata:"CDG",lat:49.0097,lon:2.5479,country:"FR"},{iata:"AMS",lat:52.3105,lon:4.7683,country:"NL"},
+  {iata:"MUC",lat:48.3538,lon:11.7861,country:"DE"},{iata:"ZRH",lat:47.4647,lon:8.5492,country:"CH"},
+  {iata:"FCO",lat:41.8003,lon:12.2389,country:"IT"},{iata:"MAD",lat:40.4983,lon:-3.5676,country:"ES"},
+  {iata:"BCN",lat:41.2974,lon:2.0833,country:"ES"},{iata:"LIS",lat:38.7813,lon:-9.1359,country:"PT"},
+  {iata:"DUB",lat:53.4213,lon:-6.2701,country:"IE"},{iata:"EDI",lat:55.9508,lon:-3.3615,country:"GB"},
+  {iata:"ATH",lat:37.9364,lon:23.9445,country:"GR"},{iata:"NCE",lat:43.6584,lon:7.2159,country:"FR"},
+  {iata:"NAP",lat:40.8860,lon:14.2908,country:"IT"},{iata:"CTA",lat:37.4668,lon:15.0664,country:"IT"},
+  {iata:"VCE",lat:45.5053,lon:12.3519,country:"IT"},{iata:"DSS",lat:14.6700,lon:-17.0733,country:"SN"},
+  {iata:"GUM",lat:13.4834,lon:144.7960,country:"US"},{iata:"NRT",lat:35.7720,lon:140.3929,country:"JP"},{iata:"HND",lat:35.5494,lon:139.7798,country:"JP"},
+  {iata:"ICN",lat:37.4602,lon:126.4407,country:"KR"},{iata:"PEK",lat:40.0799,lon:116.6031,country:"CN"},
+  {iata:"PVG",lat:31.1443,lon:121.8083,country:"CN"},{iata:"HKG",lat:22.3080,lon:113.9185,country:"HK"},
+  {iata:"SIN",lat:1.3644,lon:103.9915,country:"SG"},{iata:"BKK",lat:13.6900,lon:100.7501,country:"TH"},
+  {iata:"DEL",lat:28.5562,lon:77.1000,country:"IN"},{iata:"BOM",lat:19.0896,lon:72.8656,country:"IN"},
+  {iata:"SYD",lat:-33.9399,lon:151.1753,country:"AU"},{iata:"MEL",lat:-37.6690,lon:144.8410,country:"AU"},
+  {iata:"GRU",lat:-23.4356,lon:-46.4731,country:"BR"},{iata:"EZE",lat:-34.8222,lon:-58.5358,country:"AR"},
+  {iata:"SCL",lat:-33.3930,lon:-70.7858,country:"CL"},{iata:"BOG",lat:4.7016,lon:-74.1469,country:"CO"},
+  {iata:"MEX",lat:19.4363,lon:-99.0721,country:"MX"},{iata:"CUN",lat:21.0365,lon:-86.8771,country:"MX"},
+  {iata:"GDL",lat:20.5218,lon:-103.3113,country:"MX"},{iata:"SJD",lat:23.1518,lon:-109.7215,country:"MX"},
+  {iata:"PVR",lat:20.6801,lon:-105.2544,country:"MX"},{iata:"LIM",lat:-12.0219,lon:-77.1143,country:"PE"},
+  {iata:"PTY",lat:9.0714,lon:-79.3835,country:"PA"},{iata:"SJO",lat:9.9939,lon:-84.2088,country:"CR"},
+  {iata:"YYZ",lat:43.6777,lon:-79.6248,country:"CA"},{iata:"YVR",lat:49.1967,lon:-123.1815,country:"CA"},
+  {iata:"YUL",lat:45.4706,lon:-73.7408,country:"CA"},{iata:"YYC",lat:51.1315,lon:-114.0106,country:"CA"},
+  {iata:"TLV",lat:32.0114,lon:34.8867,country:"IL"},{iata:"DOH",lat:25.2731,lon:51.6082,country:"QA"},
+  {iata:"DXB",lat:25.2532,lon:55.3657,country:"AE"},{iata:"ADD",lat:8.9779,lon:38.7993,country:"ET"},
+  {iata:"ACC",lat:5.6052,lon:-0.1668,country:"GH"},{iata:"CPT",lat:-33.9649,lon:18.6017,country:"ZA"},
+  {iata:"JNB",lat:-26.1392,lon:28.2460,country:"ZA"},{iata:"CAI",lat:30.1219,lon:31.4056,country:"EG"},
+  {iata:"IST",lat:41.2753,lon:28.7519,country:"TR"},{iata:"MNL",lat:14.5086,lon:121.0198,country:"PH"},
+  {iata:"TPE",lat:25.0777,lon:121.2327,country:"TW"},{iata:"BRU",lat:50.9014,lon:4.4844,country:"BE"},
+  {iata:"OSL",lat:60.1976,lon:11.1004,country:"NO"},{iata:"CPH",lat:55.6180,lon:12.6560,country:"DK"},
+  {iata:"ARN",lat:59.6519,lon:17.9186,country:"SE"},{iata:"HEL",lat:60.3172,lon:24.9633,country:"FI"}
 ];
 
 const HUBS = AIRPORTS.filter(a => a.hub);
@@ -1483,6 +1487,7 @@ const IATA_CITIES = {
   LHR:'London Heathrow',FRA:'Frankfurt',CDG:'Paris CDG',AMS:'Amsterdam',MUC:'Munich',ZRH:'Zurich',
   FCO:'Rome Fiumicino',MAD:'Madrid',BCN:'Barcelona',LIS:'Lisbon',DUB:'Dublin',EDI:'Edinburgh',
   BRU:'Brussels',OSL:'Oslo',CPH:'Copenhagen',ARN:'Stockholm',HEL:'Helsinki',IST:'Istanbul',
+  ATH:'Athens',NCE:'Nice',NAP:'Naples',CTA:'Catania',VCE:'Venice',
   // Asia-Pacific
   GUM:'Guam',NRT:'Tokyo Narita',HND:'Tokyo Haneda',ICN:'Seoul Incheon',PEK:'Beijing',PVG:'Shanghai Pudong',
   HKG:'Hong Kong',SIN:'Singapore',BKK:'Bangkok',DEL:'Delhi',BOM:'Mumbai',MNL:'Manila',TPE:'Taipei',
@@ -1493,12 +1498,12 @@ const IATA_CITIES = {
   YYZ:'Toronto',YVR:'Vancouver',YUL:'Montreal',YYC:'Calgary',
   // Middle East & Africa
   TLV:'Tel Aviv',DOH:'Doha',DXB:'Dubai',ADD:'Addis Ababa',ACC:'Accra',CPT:'Cape Town',
-  JNB:'Johannesburg',CAI:'Cairo'
+  JNB:'Johannesburg',CAI:'Cairo',DSS:'Dakar'
 };
 
 // ═══ GLOBALS ═══
 let map, flightMarkers = {}, routeLine = null, routeGroup = null, hubMarkers = [], wxLayer = null;
-let allFlights = [], showHubs = true, showLonghaul = true, showWeather = false;
+let allFlights = [], showHubs = true, showLonghaul = true, showIntl = true, showWeather = false;
 let activeHubFilter = null, activePhaseFilter = null;
 let refreshTimer = null, countdown = 30;
 let deepLinkHandled = false;
@@ -1904,12 +1909,13 @@ function drawHubs() {
 
 function toggleHubs() { showHubs = !showHubs; drawHubs(); document.getElementById('btn-hubs').classList.toggle('active'); }
 function toggleLonghaul() { showLonghaul = !showLonghaul; document.getElementById('btn-longhaul').classList.toggle('active'); updateMarkers(); }
+function toggleIntl() { showIntl = !showIntl; document.getElementById('btn-intl').classList.toggle('active'); updateMarkers(); }
 function toggleWeather() {
   showWeather = !showWeather;
   document.getElementById('btn-wx').classList.toggle('active');
   if (showWeather && !wxLayer) {
     wxLayer = L.tileLayer('https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png', {
-      opacity: 0.5, maxZoom: 18
+      opacity: 0.75, maxZoom: 18
     }).addTo(map);
   } else if (!showWeather && wxLayer) {
     map.removeLayer(wxLayer); wxLayer = null;
@@ -2034,15 +2040,32 @@ function isLonghaulFlight(f) {
   return num > 0 && num < 100;
 }
 
-// Icon cache: key = "hdg_rounded|isLonghaul|phase" → L.divIcon
+// Country for an airport; US domestic entries carry no `country` field → default 'US'.
+// Returns null when the airport isn't in our coords table (can't classify).
+function airportCountry(iata) {
+  const a = AIRPORT_COORDS[iata];
+  return a ? (a.country || 'US') : null;
+}
+
+// International = origin and destination in different countries. Distinct from long-haul:
+// e.g. ATL→BOG is international but short (~1,830nm), while ATL→HNL is long-haul but domestic.
+function isInternationalFlight(f) {
+  const oc = airportCountry(f.origin);
+  const dc = airportCountry(f.dest);
+  if (oc && dc) return oc !== dc;
+  return false;
+}
+
+// Icon cache: key = "hdg_rounded|isIntl|isLonghaul|phase" → L.divIcon
 const _iconCache = {};
-function createPlaneIcon(hdg, isLonghaul, phase) {
-  // Round heading to nearest 5° to maximize cache hits (72 possible angles × 3 color combos = ~216 cached icons)
+function createPlaneIcon(hdg, isLonghaul, isIntl, phase) {
+  // Round heading to nearest 5° to maximize cache hits (72 angles × color combos)
   const hdgRounded = Math.round((hdg || 0) / 5) * 5;
-  const cacheKey = `${hdgRounded}|${isLonghaul?1:0}|${phase}`;
+  const cacheKey = `${hdgRounded}|${isIntl?1:0}|${isLonghaul?1:0}|${phase}`;
   if (_iconCache[cacheKey]) return _iconCache[cacheKey];
-  const color = isLonghaul ? '#fbbf24' : (phase === 'Ground' ? '#6b7280' : '#60a5fa');
-  const size = isLonghaul ? 11 : 11;
+  // International (emerald) takes precedence over long-haul (gold); they're separate concepts.
+  const color = isIntl ? '#34d399' : isLonghaul ? '#fbbf24' : (phase === 'Ground' ? '#6b7280' : '#60a5fa');
+  const size = 11;
   // SVG plane pointing north (0°) — classic top-down aircraft silhouette, cross-platform consistent
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 256 256" fill="${color}" style="filter:drop-shadow(0 0 2px ${color})"><path d="M131.53,25.31c0-13.98-5.56-25.31-12.41-25.31s-12.41,11.33-12.41,25.31h0v60.06S0,159.82,0,159.82v14.89s106.71-29.78,106.71-29.78v59.56s-37.23,24.82-37.23,24.82v9.93s44.67-9.93,44.67-9.93h9.93s44.67,9.93,44.67,9.93v-9.93s-37.23-24.82-37.23-24.82v-59.56s106.71,29.78,106.71,29.78v-14.89s-106.71-74.45-106.71-74.45V25.31Z"/></svg>`;  const icon = L.divIcon({
     html: `<div style="transform:rotate(${hdgRounded}deg);line-height:0">${svg}</div>`,
@@ -2097,8 +2120,9 @@ function updateMarkers() {
 
   filtered.forEach(f => {
     const isLonghaul = showLonghaul && isLonghaulFlight(f);
+    const isIntl = showIntl && isInternationalFlight(f);
     const phaseInfo = getPhase(f.alt, f.vr, f.spd);
-    const icon = createPlaneIcon(f.hdg, isLonghaul, phaseInfo.phase);
+    const icon = createPlaneIcon(f.hdg, isLonghaul, isIntl, phaseInfo.phase);
 
     // Normalize longitude to nearest world copy relative to map center
     // so IDL-crossing flights (e.g. SFO→BNE) are always visible
@@ -2177,6 +2201,8 @@ function showFlightPopup(f, marker) {
   if (squawk) html += `<div style="margin-bottom:3px"><span class="${squawk.cls}">${squawk.text}</span></div>`;
   if (hasCityNames) html += `<div class="popup-route">${escapeHtml(origCity)} <i class="fa-solid fa-arrow-right"></i> ${escapeHtml(destCity)}</div>`;
   html += `<div class="popup-route-code">${escapeHtml(routeStr)}</div>`;
+  const popupIntlOC = airportCountry(origCode), popupIntlDC = airportCountry(destCode);
+  if (popupIntlOC && popupIntlDC && popupIntlOC !== popupIntlDC) html += `<div class="popup-route-est" style="color:#34d399"><i class="fa-solid fa-earth-americas"></i> International</div>`;
   if (!hasRealRoute && (originObj || destObj)) html += `<div class="popup-route-est">estimated route</div>`;
   html += `</div>`;
 
@@ -4751,6 +4777,9 @@ document.addEventListener('click', function(e) {
       break;
     case 'toggle-longhaul':
       toggleLonghaul();
+      break;
+    case 'toggle-intl':
+      toggleIntl();
       break;
     case 'toggle-weather':
       toggleWeather();
